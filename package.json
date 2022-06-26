@@ -1,0 +1,23 @@
+{
+  "name": "charadas-de-fisica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SleepyOwls/Charadas-de-fisica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SleepyOwls/Charadas-de-fisica/issues"
+  },
+  "homepage": "https://github.com/SleepyOwls/Charadas-de-fisica#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
