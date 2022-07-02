@@ -3,10 +3,14 @@
         "target": "es6",
         "module": "commonjs",
         "sourceMap": true,
-        "outDir": "public/js",
-        "watch": true
+        "outDir": "out",
+        "watch": true,
+        "esModuleInterop": true
     },
     "include": [
-        "src/client/*"
+        "src"
+    ],
+    "exclude": [
+        "src/Client"
     ]
 }
