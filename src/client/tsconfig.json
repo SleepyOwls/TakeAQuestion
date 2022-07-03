@@ -4,7 +4,6 @@
         //"module": "commonjs",
         "sourceMap": true,
         "outDir": "../../res/js",
-        "watch": true,
         "esModuleInterop": true,
         "moduleResolution": "node"
     },
