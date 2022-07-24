@@ -9,8 +9,8 @@ import * as http from "http";
 
 class WebServer {
     private app: Express;
-    private router: Router;
-    private server: http.Server;
+    private readonly router: Router;
+    private readonly server: http.Server;
 
     constructor() {
         this.app = express();
@@ -22,10 +22,11 @@ class WebServer {
         this.router.get("/", (req, res) => { res.send(fs.readFileSync(path.join(__dirname, "../public/index.html"), "utf-8")); });
 
         this.router.get("/admin", (req, res) => {
-            var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress 
+            const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
             if(ip != "::1") res.redirect("/");
-            
-            res.send(fs.readFileSync(path.join(__dirname, "../public/admin.html"), "utf-8"));
+
+            res.sendFile(path.join(__dirname, "../public/admin.html"));
+            // res.send(fs.readFileSync(path.join(__dirname, "../public/admin.html"), "utf-8"));
         });
 
         this.app.use(this.router);

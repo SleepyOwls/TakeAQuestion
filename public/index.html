@@ -5,8 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
+
+    <link rel="stylesheet" href="res/css/General.css">
+    <link rel="stylesheet" href="res/css/Login.css">
 </head>
 <body>
-    <h1>Hello from game!</h1>
+    <canvas id="view" style="position: absolute; left: 0; top: 0; z-index: -1"></canvas>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+            }
+        }
+    </script>
+
+    <script type="module" src="/res/js/Client/Client.js"></script>
+    <script type="module" src="/res/js/Client/Renderer.js"></script>
+    <script type="module" src="/res/js/Client/BoardClient.js"></script>
+    <script type="module" src="/res/js/Client/Triangle.js"></script>
+    <script type="module" src="/res/js/Client/ClientInfoForm.js"></script>
+
+    <script type="module" src="/res/js/Utils/BoardInfo.js"></script>
+    <script type="module" src="/res/js/Utils/Vector2f.js"></script>
+
+    <script type="module">
+        import { PlayerClient } from "../res/js/Client/Client.js";
+        if(document.readyState !== "loading") new PlayerClient();
+        else document.onload = () => { new PlayerClient(); }
+    </script>
 </body>
 </html>

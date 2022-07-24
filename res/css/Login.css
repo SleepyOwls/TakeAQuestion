@@ -1,0 +1,93 @@
+@keyframes intro {
+    from {
+        left: 70%;
+        top: 50%;
+        opacity: 0;
+    }
+    to {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+#joinForm {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20%;
+    height: 20%;
+    background: rgb(54, 54, 54);
+    border-radius: 24px;
+    box-shadow: 6px 6px 4px 4px rgba(21, 21, 21, 0.65);
+    min-width: 500px;
+    min-height: 300px;
+    animation-duration: 1.5s;
+    animation-name: intro;
+}
+
+#username {
+    width: 70%;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, 0);
+    border: 1px solid #000000;
+    background-color: rgba(44, 44, 44, 0.55);
+    color: white;
+    text-align: center;
+    font-family: Arial, serif;
+    font-size: 25px;
+    transition: .5s;
+}
+
+#username:hover, #username:focus {
+    width: 80%;
+    border: 1px solid #4ce577;
+}
+
+#submit {
+    position: absolute;
+    width: 50%;
+    height: 50px;
+    border-radius: 25px;
+    left: 50%;
+    bottom: 20%;
+    transform: translate(-50%, 0);
+    background-color: rgba(44, 44, 44, 0.55);
+    color: white;
+    text-align: center;
+    font-family: Arial, serif;
+    font-size: 25px;
+    transition: .5s;
+}
+
+#submit:hover {
+    background-color: #4ce577;
+    width: 60%;
+}
+
+#errorDiv {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, 0);
+    width: 75%;
+    height: 35px;
+    background-color: #ff5e5e;
+    display: none;
+    border-radius: 15px;
+}
+
+#errorMsg {
+    margin: 0;
+    font-family: Arial, serif;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    line-height: 35px;
+}

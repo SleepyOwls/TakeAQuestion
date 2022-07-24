@@ -5,19 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
+
+    <link rel="stylesheet" href="/res/css/General.css">
+    <link rel="stylesheet" href="/res/css/Login.css">
+    <link rel="stylesheet" href="/res/css/MatchCreator.css">
 </head>
 <body>
-    <h1>Hello from admin panel!</h1>
+    <canvas id="view" style="position: absolute; left: 0; top: 0"></canvas>
 
     <script type="importmap">
         {
-          "imports": {
-            "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
-          }
+            "imports": {
+                "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+            }
         }
-      </script>
+    </script>
 
-    <!-- <script src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script> -->
-    <script type="module" src="/res/js/Client.js"></script>
+    <script type="module">
+        import {AdminClient} from "/res/js/Client/Client.js";
+
+        if(document.readyState !== "loading") new AdminClient();
+        else document.onload = () => { new AdminClient(); }
+    </script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 import { app, BrowserWindow } from "electron";
 import * as dotenv from "dotenv";
+import {concurrently} from "concurrently";
+import {Game} from "../index";
 
 class Window {
     private win: BrowserWindow;
@@ -18,12 +20,14 @@ class Window {
         this.win.loadURL("http://localhost:8080/admin");
         this.win.setTitle("Painel de administrador");
 
-        if(process.env["DEV_ENV"] === "true") this.win.webContents.openDevTools({ mode: "detach" });
+        if(process.env["DEV_ENV"] && process.env["DEV_ENV"] === "true") this.win.webContents.openDevTools({ mode: "detach" });
     }
 }
 
-var env = dotenv.config();
-if(env.error) console.log(console.log(`${env.error.message}${env.error.stack ? ": " + env.error.stack : ""}`));
+let env = dotenv.config();
+if(env.error) console.log(`${env.error.message}${env.error.stack ? ": " + env.error.stack : ""}`);
+
+new Game();
 
 app.whenReady().then(() => new Window());
 app.on('activate', () => { if(BrowserWindow.getAllWindows().length === 0) new Window(); });
