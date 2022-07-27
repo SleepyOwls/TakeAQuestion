@@ -36,6 +36,11 @@ class MatchCreator {
         this.client.createMatch(this);
     }
 
+    public destroy() {
+        this.controls.destroy();
+        this.controls = null;
+    }
+
     public setBoardSize(newSize: number) {
         this.boardSize = newSize;
         this.makeBoard();
@@ -130,6 +135,15 @@ class MatchCreatorControls {
         this.createMatchButton.addEventListener("click", () => {
             this.matchCreator.finishMatchConfiguration();
         });
+    }
+
+    public destroy() {
+        this.createMatchButton.remove();
+        this.boardRelatedTitle.remove();
+        this.boardSizeInput.remove();
+        this.regenerateTrianglesButton.remove();
+        this.boardRelated.remove();
+        this.panel.remove();
     }
 }
 

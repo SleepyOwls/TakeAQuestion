@@ -13,13 +13,13 @@ class BoardClient {
     private readonly defaultTriangleSize = new Vector2f(250, 250);
     private triangleSize = new Vector2f(250, 250);
 
-    constructor(boardInfo: InitialBoardInfo, boardPosition: Vector2f, renderer: Renderer) {
-        this.size = boardInfo ? boardInfo.getBoardSize() : 15;
+    constructor(boardInfo: { boardSize: number, triangles: number[] }, boardPosition: Vector2f, renderer: Renderer) {
+        this.size = boardInfo ? boardInfo.boardSize : 15;
         this.renderer = renderer;
         this.position = boardPosition;
         this.triangles = [];
 
-        if(boardInfo) this.calculateTrianglePositions(this.size, boardInfo.getTriangleTypes());
+        if(boardInfo) this.calculateTrianglePositions(this.size, boardInfo.triangles);
     }
 
     public renderTriangle(x: number, y: number, color: string, upsideDown: boolean) {
@@ -132,6 +132,10 @@ class BoardClient {
         // this.renderTriangle(1100 - 750 - 75, 1100 - 600, "#f54e42", true);
         // this.renderTriangle(1100 - 750 - 75, 1100 - 750, "#4ce66d", false);
         // this.renderTriangle(1100 - 900, 1100 - 750, "#4ce66d", true);
+    }
+
+    public getTriangle(index: number) {
+        return this.triangles[index];
     }
 
     public setSize(newSize: number) {

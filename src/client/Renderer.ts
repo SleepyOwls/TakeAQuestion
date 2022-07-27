@@ -60,6 +60,7 @@ class Renderer {
         height *= this.yScale;
 
         this.context.save();
+        this.context.translate(-(width / 2), -(height / 2));
         this.context.drawImage(image, 0, 0, image.width, image.height, x, y, width, height);
         this.context.restore();
     }

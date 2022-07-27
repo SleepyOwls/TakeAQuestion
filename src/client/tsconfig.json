@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
         "target": "es6",
-        //"module": "commonjs",
+//        "module": "es2020",
         "sourceMap": true,
         "outDir": "../../res/js",
         "esModuleInterop": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "removeComments": true
     },
     "include": [
         "./"

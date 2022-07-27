@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://cdn.socket.io">
     <title>Admin Panel</title>
 
     <link rel="stylesheet" href="/res/css/General.css">
     <link rel="stylesheet" href="/res/css/Login.css">
     <link rel="stylesheet" href="/res/css/MatchCreator.css">
+
+    <link rel="stylesheet" href="/res/css/dark.min.css">
 </head>
 <body>
     <canvas id="view" style="position: absolute; left: 0; top: 0"></canvas>
@@ -21,6 +24,7 @@
         }
     </script>
 
+    <script src="/res/lib/sweetalert2.min.js"></script>
     <script type="module">
         import {AdminClient} from "/res/js/Client/Client.js";
 

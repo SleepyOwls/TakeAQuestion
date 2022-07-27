@@ -1,6 +1,5 @@
 import { app, BrowserWindow } from "electron";
 import * as dotenv from "dotenv";
-import {concurrently} from "concurrently";
 import {Game} from "../index";
 
 class Window {
@@ -10,7 +9,7 @@ class Window {
         this.win = new BrowserWindow({
             width: 854,
             height: 480,
-            webPreferences: { nodeIntegration: true },
+            webPreferences: { nodeIntegration: false, contextIsolation: true,  },
             title: "Painel de administrador"
         });
 

@@ -5,13 +5,18 @@ import {MatchData} from "./MatchData";
 interface ServerToClientEvents {
     initialGameInfo: (info: string) => void;
     matchOpen: () => void;
+    playerJoined: (info: { playerName: string, character: number, position: number, uuid: string }) => void;
+    playerDisconnected: (info: { playerName: string, uuid: string }) => void;
+    playerInfo: (data: { uuid: string, position: number }) => void;
 }
 
 interface ClientToServerEvents {
-    joinGame: (username: string) => void;
+    joinGame: (info: { username: string, character: string}) => void;
     loginAdmin: () => void;
-    isMatchOpen: (callback: (err: any, response: boolean) => void) => void;
-    createNewMatch: (data: MatchData, callback: (err: any, ready: boolean) => void) => void;
+    isMatchOpen: (callback: (response: boolean) => void) => void;
+    createNewMatch: (data: MatchData, callback: () => void) => void;
+    getBoard: (callback: (data: string) => void) => void;
+    reconnecting: (userId: string) => void;
 }
 
 interface InterServerEvents {

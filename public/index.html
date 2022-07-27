@@ -8,29 +8,24 @@
 
     <link rel="stylesheet" href="res/css/General.css">
     <link rel="stylesheet" href="res/css/Login.css">
+
+    <link rel="stylesheet" href="/res/css/dark.min.css">
 </head>
 <body>
-    <canvas id="view" style="position: absolute; left: 0; top: 0; z-index: -1"></canvas>
+    <canvas id="view" style="position: absolute; left: 0; top: 0"></canvas>
 
     <script type="importmap">
-        {
-            "imports": {
-                "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+            {
+                "imports": {
+                    "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+                }
             }
-        }
-    </script>
+        </script>
 
-    <script type="module" src="/res/js/Client/Client.js"></script>
-    <script type="module" src="/res/js/Client/Renderer.js"></script>
-    <script type="module" src="/res/js/Client/BoardClient.js"></script>
-    <script type="module" src="/res/js/Client/Triangle.js"></script>
-    <script type="module" src="/res/js/Client/ClientInfoForm.js"></script>
-
-    <script type="module" src="/res/js/Utils/BoardInfo.js"></script>
-    <script type="module" src="/res/js/Utils/Vector2f.js"></script>
-
+    <script src="/res/lib/sweetalert2.min.js"></script>
     <script type="module">
-        import { PlayerClient } from "../res/js/Client/Client.js";
+        import {PlayerClient} from "../res/js/Client/Client.js";
+
         if(document.readyState !== "loading") new PlayerClient();
         else document.onload = () => { new PlayerClient(); }
     </script>

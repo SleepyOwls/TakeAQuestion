@@ -79,6 +79,35 @@
     border: 2px solid #4ce577;
 }
 
+#creatorPanel #createMatch {
+    position: absolute;
+    width: 15%;
+    height: 80px;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: 25px;
+    border: 2px solid black;
+    background-color: rgb(31, 31, 31);
+    color: white;
+    font-size: 25px;
+    transition: .5s;
+}
+
+#creatorPanel #createMatch:hover {
+    width: 20%;
+    border: 2px solid #4ce577;
+    color: black;
+    background-color: #4ce577;
+}
+
+#creatorPanel #createMatch:active {
+    width: 20%;
+    border: 2px solid #3b8d53;
+    color: black;
+    background-color: #3b8d53;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -89,6 +118,10 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+input {
+    outline: none;
 }
 
 @media screen and (max-width: 2550px) {
@@ -102,5 +135,15 @@ input[type=number] {
 
     #boardRelatedControls #title {
         top: 0;
+    }
+
+    #creatorPanel #createMatch {
+        height: 35px;
+        width: 30%;
+        font-size: 20px;
+    }
+
+    #creatorPanel #createMatch:hover {
+        width: 40%;
     }
 }

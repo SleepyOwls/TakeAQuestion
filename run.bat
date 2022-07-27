@@ -7,12 +7,15 @@ IF NOT EXIST "./out" (
     ECHO -^> Out folder already exists
 )
 
-ECHO Compiling Server...
-CALL tsc
-ECHO Compiling Client...
-cd ./src/Client
-CALL tsc
+@REM ECHO Compiling Server...
+@REM CALL tsc
+@REM ECHO Compiling Client...
+@REM cd ./src/Client
+@REM CALL tsc
+ECHO Compiling...
+CALL gulp
 ECHO Starting...
 cd ..
 cd ..
-npm start
+electron .
+@REM npm start
