@@ -23,9 +23,9 @@ class MatchCreator {
 
     public makeBoard() {
         this.triangles = [];
-        this.triangles.push(TriangleType.INITIAL);
+        this.triangles[0] = TriangleType.INITIAL;
         for(let i = 1; i < this.boardSize + (this.boardSize - 3) * 2 + 1; i++) {
-            this.triangles.push(Math.random() > 0.5 ? TriangleType.EMPTY : TriangleType.SURPRISE);
+            this.triangles[i] = Math.random() > 0.5 ? TriangleType.EMPTY : TriangleType.SURPRISE;
         }
 
         this.previewBoard.setSize(this.boardSize);
