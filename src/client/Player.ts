@@ -32,22 +32,25 @@ class Player {
     }
 
     public render() { // TODO: Player randomly teleporting to outside the screen and coming back animating to the correct position
-        let toFinishAnimX = +Math.abs(this.animateTo.x - this.animCurrentPos.x).toFixed(1);
-        let toFinishAnimY = +Math.abs(this.animateTo.y - this.animCurrentPos.y).toFixed(1);
+        if(this.animateTo.x != this.animCurrentPos.x || this.animateTo.y != this.animCurrentPos.y) {
+            let toFinishAnimX = +Math.abs(this.animateTo.x - this.animCurrentPos.x).toFixed(1);
+            let toFinishAnimY = +Math.abs(this.animateTo.y - this.animCurrentPos.y).toFixed(1);
 
-        let fps = this.client.framerate == 0 ? this.previousFPS : this.client.framerate;
-        this.previousFPS = fps;
+            let fps = this.client.framerate == 0 ? this.previousFPS : this.client.framerate;
+            this.previousFPS = fps;
 
-        this.animMovementSpeed = new Vector2f((this.animateTo.x - this.animCurrentPos.x) / (1.5 * fps), (this.animateTo.y - this.animCurrentPos.y) / (1.5 * fps));
+            this.animMovementSpeed = new Vector2f(+((this.animateTo.x - this.animCurrentPos.x) / (1.5 * fps)).toFixed(1), +((this.animateTo.y - this.animCurrentPos.y) / (1.5 * fps)).toFixed(1));
 
-        if(this.animMovementSpeed.x > toFinishAnimX) this.animMovementSpeed.x = this.animateTo.x;
-        if(this.animMovementSpeed.y > toFinishAnimY) this.animMovementSpeed.y = this.animateTo.y;
+            if (this.animMovementSpeed.x > toFinishAnimX) this.animMovementSpeed.x = this.animateTo.x;
+            if (this.animMovementSpeed.y > toFinishAnimY) this.animMovementSpeed.y = this.animateTo.y;
 
-        this.animCurrentPos = this.animCurrentPos.add(this.animMovementSpeed);
+            this.animCurrentPos = this.animCurrentPos.add(this.animMovementSpeed);
+            console.log(this.animateTo);
 
-        if(this.animCurrentPos.x == this.animateTo.x && this.animCurrentPos.y == this.animateTo.y) {
-            this.animMovementSpeed = new Vector2f(0, 0);
-            this.animateTo = this.animCurrentPos;
+            if (this.animCurrentPos.x == this.animateTo.x && this.animCurrentPos.y == this.animateTo.y) {
+                this.animMovementSpeed = new Vector2f(0, 0);
+                this.animCurrentPos = this.animateTo;
+            }
         }
 
         this.renderer.drawText(this._playerName, this.animCurrentPos.x, this.animCurrentPos.y - 120, "white", false, 50, "Arial");
