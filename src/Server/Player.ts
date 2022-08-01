@@ -18,6 +18,7 @@ class Player {
     private _pass: boolean;
     private readonly _actionExecutor: ActionExecutor;
     private _previousSurpriseTriangle: number;
+    private _movedForward: boolean = false;
 
     constructor(position: number = 0, playerName: string, character: Character, clientSocket: Socket, uuid: string, board: BoardServer) {
         this._position = position;
@@ -40,9 +41,12 @@ class Player {
         let i = increment * this.advanceMultiplier;
         if((increment < 0 && i > 0) || (increment > 0 && i < 0)) i *= -1;
 
-        let toTheEnd = (this.board.boardSize - 1) - (this.position);
+        this._movedForward = increment > 0;
+        this.previousSurpriseTriangle = -1;
 
-        this.position = i > toTheEnd ? 0 : this.position + i;
+        let toTheEnd = (this.board.boardSize) - (this.position);
+
+        this.position = i >= toTheEnd ? 0 : this.position + i;
         this.advanceMultiplier = 1;
         console.log(`Moved player ${this.playerName} ${increment} houses! New Player Position is: ${this.position}`);
     }
@@ -74,6 +78,12 @@ class Player {
     get doPass() {
         let r = this._pass;
         this._pass = false
+        return r;
+    }
+
+    get movedForward() {
+        let r = this._movedForward;
+        this._movedForward = false;
         return r;
     }
 

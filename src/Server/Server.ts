@@ -22,6 +22,16 @@ class GameServer {
     private cardManager: CardManager;
     
     constructor(expressServer: WebServer) {
+        console["originalLog"] = console.log.bind(console);
+        console.log = (data) => {
+            let date = new Date();
+            let h = date.getHours();
+            let m = date.getMinutes();
+            let s = date.getSeconds();
+            let time = `${h > 10 ? h : "0" + h}:${m > 10 ? m : "0" + m}:${s > 10 ? s : "0" + s}`;
+            console["originalLog"](`[${time}]`, data);
+        }
+
         this.matchOpen = false;
         this.players = {};
         this.server = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEvents, SocketData>(expressServer.getServer());
@@ -170,8 +180,6 @@ class GameServer {
                     return;
                 }
 
-                let previousPlayerPos = player.position;
-
                 await new Promise<void>((resolve) => {
                     this.makePlayerTakeQuestion(player).then(async info => {
                         if(info.correct) await this.rollDie(player.uuid, (result) => player.move(result));
@@ -193,7 +201,11 @@ class GameServer {
                     });
                 });
 
-                if(player.position == 0 && player.position > previousPlayerPos) {
+                let positionIsZero = player.position === 0;
+                let movedForward = player.movedForward;
+
+                if(positionIsZero && movedForward) {
+                    console.log(`=-=-=-=-=-=-=-=--=-=[ ${player.playerName} Won the game! ]=-=-=-=-=-=-=-=--=-=`);
                     this.server.sockets.in([ "playing", "admin" ]).emit("playerWon", player.uuid);
                     this.matchEnded = true;
                     setTimeout(() => this.endMatch(), 30000);
@@ -301,8 +313,14 @@ class GameServer {
                 }
 
 
-                if (chosenQuestion.isCorrectIfCorrectAnswerIsOnUserAnswer && correctAnswer.includes(answer)) {
-                    correct = true;
+                if (chosenQuestion.isCorrectIfCorrectAnswerIsOnUserAnswer) {
+                    let correctW = correctAnswer.split(" ");
+                    let wordsIncluded = true;
+
+                    for(let i of correctW)
+                        if(answer.indexOf(i) == -1) wordsIncluded = false;
+
+                    correct = wordsIncluded;
                 }
 
                 this.server.sockets.volatile.in(["playing", "admin"]).emit("playerAnsweredQuestion", player.uuid, {
