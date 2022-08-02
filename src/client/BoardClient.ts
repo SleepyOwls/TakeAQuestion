@@ -1,4 +1,4 @@
-import {Renderer} from "./Renderer";
+import {Renderer} from "./Renderer.js";
 import {Triangle} from "./Triangle.js";
 import {Vector2f} from "../Utils/Vector2f.js";
 import {TriangleType} from "../Utils/Enums.js";
@@ -23,19 +23,17 @@ class BoardClient {
 
     public renderTriangle(x: number, y: number, color: string, upsideDown: boolean) {
         this.renderer.drawTriangle(x, y, this.triangleSize.x, this.triangleSize.y, color, false, upsideDown);
-
-        this.renderer.drawTriangle(x, y, this.triangleSize.x, this.triangleSize.y, "black",
-            true, upsideDown);
+        this.renderer.drawTriangle(x, y, this.triangleSize.x, this.triangleSize.y, "black", true, upsideDown);
     }
 
     private calculateTrianglePositions(size: number, triangleTypes: TriangleType[]) {
-        let sizeX = this.defaultTriangleSize.x * (15 / size);
-        let sizeY = this.defaultTriangleSize.y * (15 / size);
-        this.triangleSize = new Vector2f(sizeX, sizeY);
+        let triangleSizeX = this.defaultTriangleSize.x * (15 / size);
+        let triangleSizeY = this.defaultTriangleSize.y * (15 / size);
+        this.triangleSize = new Vector2f(triangleSizeX, triangleSizeY);
 
-        let firstX = this.position.x - ((size / 4.3) * this.triangleSize.x);
-        let firstY = this.position.y - ((size - 1) / 4.3) * this.triangleSize.y + (this.triangleSize.y / 2);
-        let first = new Vector2f(firstX, firstY);
+        let firstPosX = this.position.x - ((size / 4.3) * this.triangleSize.x);
+        let firstPosY = this.position.y - ((size - 1) / 4.3) * this.triangleSize.y + (this.triangleSize.y / 2);
+        let first = new Vector2f(firstPosX, firstPosY);
 
         this.triangles.push(new Triangle(first, false, "#f5f542", 0, this));
         let lastPosition = new Vector2f(0, 0);
@@ -52,10 +50,10 @@ class BoardClient {
             let upsideDown = i % 2 != 0;
             let color = getTriangleColor(triangleTypes[typeIndex]);
 
-            incrementX += incrementX;
+            incrementX += this.triangleSize.x / 2;
             this.triangles.push(new Triangle(position, upsideDown, color, triangleTypes[typeIndex], this));
 
-            lastPosition = position;
+            if(i >= size - 1) lastPosition = position;
         }
 
         incrementX = 0;
@@ -70,12 +68,13 @@ class BoardClient {
             incrementY += (i % 2 != 0 ? this.triangleSize.y : 0);
             this.triangles.push(new Triangle(position, upsideDown, color, triangleTypes[typeIndex], this));
 
-            lastPosition = position;
+            if(i >= size - 4) lastPosition = position;
         }
 
         typeIndex++;
         let color = getTriangleColor(triangleTypes[typeIndex]);
         let position = new Vector2f(lastPosition.x - (this.triangleSize.x / 2), lastPosition.y);
+
         this.triangles.push(new Triangle(position, !this.triangles[this.triangles.length - 1].isUpsideDown(),
             color, triangleTypes[typeIndex], this));
 

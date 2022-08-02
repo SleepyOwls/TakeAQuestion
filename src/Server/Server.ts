@@ -30,7 +30,7 @@ class GameServer {
             let h = date.getHours();
             let m = date.getMinutes();
             let s = date.getSeconds();
-            let time = `${h > 10 ? h : "0" + h}:${m > 10 ? m : "0" + m}:${s > 10 ? s : "0" + s}`;
+            let time = `${h >= 10 ? h : "0" + h}:${m >= 10 ? m : "0" + m}:${s >= 10 ? s : "0" + s}`;
             console["originalLog"](`[${time}]`, data);
         }
 
@@ -186,6 +186,7 @@ class GameServer {
 
                 await new Promise<void>((resolve) => {
                     this.makePlayerTakeQuestion(player).then(async info => {
+                        await this.delay(1000);
                         if(info.correct) await this.rollDie(player.uuid, (result) =>
                             player.move(result));
 
@@ -198,9 +199,7 @@ class GameServer {
                                     this.sendPlayerUpdateEvent();
                                     setTimeout(resolve, 2000);
                                 }));
-                        } else setTimeout(() => {
-                            resolve();
-                        }, 2000);
+                        } else setTimeout(() => resolve(), 2000);
                     });
                 });
 

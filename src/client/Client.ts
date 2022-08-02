@@ -113,7 +113,7 @@ abstract class Client {
         this.ioClient.on("matchEnded", () => {
            this.endMatch();
            this.disconnect();
-           setTimeout(() => document.location.reload(), 5000);
+           setTimeout(() => document.location.reload(), 1000);
         });
 
         this.ioClient.on("playerRolledDie", (player, result) => {
@@ -138,7 +138,7 @@ abstract class Client {
         this.ioClient.on("playerWon", (player) => {
             let p = this.players[player];
 
-            this.showConfetti();
+            setTimeout(() => this.showConfetti(), 1000);
             Swal.fire({
                 title: `${p.playerName} venceu a partida!`,
                 text: `${p.playerName} foi o primeiro jogador a chegar à ultima casa!`,
@@ -327,13 +327,9 @@ abstract class Client {
             this.confettiRendererInterval = setInterval(() => {
                 const confettiEl = document.createElement("div");
                 const confettiSize = Math.floor(Math.random() * 3) + 7 + "px";
-                const confettiBackground = confettiColors[
-                        Math.floor(Math.random() * confettiColors.length)
-                    ];
+                const confettiBackground = confettiColors[Math.floor(Math.random() * confettiColors.length)];
                 const confettiLeft = Math.floor(Math.random() * document.body.offsetWidth) + "px";
-                const confettiAnimation = confettiAnimations[
-                        Math.floor(Math.random() * confettiAnimations.length)
-                    ];
+                const confettiAnimation = confettiAnimations[Math.floor(Math.random() * confettiAnimations.length)];
 
                 confettiEl.classList.add(
                     "confetti",
@@ -344,9 +340,8 @@ abstract class Client {
                 confettiEl.style.height = confettiSize;
                 confettiEl.style.backgroundColor = confettiBackground;
 
-                this.confettiRemoverInterval = setTimeout(function () {
-                    confettiEl.parentNode.removeChild(confettiEl);
-                }, 3000);
+                this.confettiRemoverInterval = setTimeout(() =>
+                    confettiEl.parentNode.removeChild(confettiEl), 3000);
 
                 this.confettiContainer.appendChild(confettiEl);
             }, 25);

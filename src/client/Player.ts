@@ -47,7 +47,6 @@ class Player {
             if(this.animMovementSpeed.y > toFinishAnimY) this.animMovementSpeed.y = this.animateTo.y;
 
             this.animCurrentPos = this.animCurrentPos.add(this.animMovementSpeed);
-            console.log(this.animateTo);
 
             if (this.animCurrentPos.x == this.animateTo.x && this.animCurrentPos.y == this.animateTo.y) {
                 this.animMovementSpeed = new Vector2f(0, 0);
