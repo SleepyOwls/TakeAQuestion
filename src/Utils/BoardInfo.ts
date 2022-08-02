@@ -5,7 +5,9 @@ class InitialBoardInfo {
     private readonly triangles: TriangleType[];
     private readonly players: { playerName: string, uuid: string, position: number, character: Character }[];
 
-    constructor(info: { boardSize: number, triangles: number[], players: { playerName: string, uuid: string, position: number, character: Character }[] }) {
+    constructor(info: { boardSize: number, triangles: number[], players: { playerName: string, uuid: string,
+            position: number, character: Character }[] }) {
+
         this.boardSize = info.boardSize;
         this.triangles = info.triangles;
         this.players = info.players;
@@ -24,7 +26,9 @@ class InitialBoardInfo {
     }
 
     public static serialize(info: InitialBoardInfo) {
-        return JSON.stringify({ boardSize: info.getBoardSize(), triangles: info.triangles, players: info.players });
+        return JSON.stringify(
+            { boardSize: info.getBoardSize(), triangles: info.triangles, players: info.players }
+        );
     }
 
     public static deserialize(info: string) {
@@ -37,7 +41,9 @@ class InitialBoardInfo {
             if(i == TriangleType.SURPRISE.valueOf()) triangles.push(TriangleType.SURPRISE);
         }
 
-        return new InitialBoardInfo({ boardSize: parsedInfo.boardSize, triangles: triangles, players: parsedInfo.players });
+        return new InitialBoardInfo(
+            { boardSize: parsedInfo.boardSize, triangles: triangles, players: parsedInfo.players }
+        );
     }
 }
 

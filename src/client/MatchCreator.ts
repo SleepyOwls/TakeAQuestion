@@ -1,6 +1,5 @@
 import {TriangleType} from "../Utils/Enums.js";
 import {BoardClient} from "./BoardClient.js";
-import {Vector2f} from "../Utils/Vector2f.js";
 import {Renderer} from "./Renderer.js";
 import {AdminClient} from "./Client";
 
@@ -16,17 +15,18 @@ class MatchCreator {
         this.boardSize = 15;
         this.renderer = renderer;
         this.client = client;
-        this.previewBoard = new BoardClient(null, new Vector2f(Renderer.canvasWidth / 2, Renderer.canvasHeight / 2), renderer);
+        this.previewBoard = new BoardClient(null, renderer);
         this.controls = new MatchCreatorControls(this);
+
         this.makeBoard();
     }
 
     public makeBoard() {
         this.triangles = [];
         this.triangles[0] = TriangleType.INITIAL;
-        for(let i = 1; i < this.boardSize + (this.boardSize - 3) * 2 + 1; i++) {
+
+        for(let i = 1; i < this.boardSize + (this.boardSize - 3) * 2 + 1; i++)
             this.triangles[i] = Math.random() > 0.5 ? TriangleType.EMPTY : TriangleType.SURPRISE;
-        }
 
         this.previewBoard.setSize(this.boardSize);
         this.previewBoard.setTriangles(this.triangles);
@@ -69,7 +69,6 @@ class MatchCreatorControls {
     private readonly boardSizeInput: HTMLInputElement;
 
     private readonly createMatchButton: HTMLButtonElement;
-
     private previousBoardSize: number;
 
     constructor(creator: MatchCreator) {

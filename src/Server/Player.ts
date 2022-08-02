@@ -10,7 +10,6 @@ class Player {
     private _clientSocket: Socket;
     private _connected: boolean;
     private readonly _uuid: string;
-
     private board: BoardServer;
 
     private _advanceMultiplier: number;
@@ -20,14 +19,15 @@ class Player {
     private _previousSurpriseTriangle: number;
     private _movedForward: boolean = false;
 
-    constructor(position: number = 0, playerName: string, character: Character, clientSocket: Socket, uuid: string, board: BoardServer) {
+    constructor(position: number = 0, playerName: string, character: Character, clientSocket: Socket, uuid: string,
+                board: BoardServer) {
+
         this._position = position;
         this._playerName = playerName;
         this._clientSocket = clientSocket;
         this._uuid = uuid;
         this._connected = true;
         this._character = character;
-
         this.board = board;
 
         this._advanceMultiplier = 1;

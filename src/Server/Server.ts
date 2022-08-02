@@ -20,6 +20,8 @@ class GameServer {
 
     private players: { [key: string]: Player };
     private cardManager: CardManager;
+
+    private readonly delay = ms => new Promise(res => setTimeout(res, ms));
     
     constructor(expressServer: WebServer) {
         console["originalLog"] = console.log.bind(console);
@@ -34,7 +36,8 @@ class GameServer {
 
         this.matchOpen = false;
         this.players = {};
-        this.server = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEvents, SocketData>(expressServer.getServer());
+        this.server = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEvents,
+            SocketData>(expressServer.getServer());
 
         this.server.on("connection", (socket) => {
             socket.on("disconnect", () => {
@@ -46,7 +49,9 @@ class GameServer {
 
                     setTimeout(() => {
                         if(!p.connected) {
-                            this.server.in(["playing", "admin"]).emit("playerDisconnected", { playerName: p.playerName, uuid: socket.data.uuid });
+                            this.server.in(["playing", "admin"]).emit("playerDisconnected",
+                                { playerName: p.playerName, uuid: socket.data.uuid });
+
                             this.removePlayer(socket.data.uuid);
                         }
                     }, 8000);
@@ -54,9 +59,8 @@ class GameServer {
             });
 
             socket.on("isNameAvailable", (name, callback) => {
-                for(let id in this.players) {
+                for(let id in this.players)
                     if(this.players[id].playerName == name) { callback(false); return; }
-                }
 
                 callback(true);
             });
@@ -72,7 +76,9 @@ class GameServer {
                     socket.data.uuid = userId;
 
                     socket.join("playing");
-                    socket.emit("initialGameInfo", InitialBoardInfo.serialize(new InitialBoardInfo(this.serializeInfo())));
+                    socket.emit("initialGameInfo", InitialBoardInfo.serialize(
+                        new InitialBoardInfo(this.serializeInfo())));
+
                     socket.emit("playerInfo", { uuid: userId, position: p.position });
                 }
             });
@@ -81,13 +87,11 @@ class GameServer {
                 if(!this.matchOpen) return;
 
                 let name = info.username || null;
-
                 if(!name || !info.character) return;
                 if(name.length < 4 || name.length > 15) return;
 
-                for(let id in this.players) {
+                for(let id in this.players)
                     if(this.players[id].playerName == info.username) return;
-                }
 
                 let pos: number = 0;
 
@@ -102,12 +106,11 @@ class GameServer {
                 socket.emit("initialGameInfo", InitialBoardInfo.serialize(new InitialBoardInfo(this.serializeInfo())));
                 socket.emit("playerInfo", { uuid: socket.data.uuid, position: 0 });
 
-                this.server.in(["playing", "admin"]).emit("playerJoined", { playerName: name, character: info.character, position: pos, uuid: socket.data.uuid });
+                this.server.in(["playing", "admin"]).emit("playerJoined",
+                    { playerName: name, character: info.character, position: pos, uuid: socket.data.uuid });
             });
 
-            socket.on("isMatchOpen", (callback) => {
-                callback(this.matchOpen);
-            });
+            socket.on("isMatchOpen", (callback) => callback(this.matchOpen));
 
             socket.once("loginAdmin", () => {
                 // Only a socket from localhost can be assigned as admin
@@ -121,9 +124,8 @@ class GameServer {
                         callback();
                     });
 
-                    socket.on("getBoard", (callback) => {
-                        callback(InitialBoardInfo.serialize(new InitialBoardInfo(this.serializeInfo())));
-                    });
+                    socket.on("getBoard", (callback) =>
+                        callback(InitialBoardInfo.serialize(new InitialBoardInfo(this.serializeInfo()))));
 
                     socket.on("startMatch", () => {
                         if(Object.keys(this.players).length < 2) return;
@@ -138,20 +140,20 @@ class GameServer {
         let playerIndex = 0;
         let time;
 
-        const delay = ms => new Promise(res => setTimeout(res, ms));
-
         let nextPlayerTurn = async () => {
             if (this.matchEnded) return;
 
-            console.log("--------------------------------")
+            console.log("--------------------------------");
             console.log(`${this.players[Object.keys(this.players)[playerIndex]].playerName}'s round`);
-            console.log("--------------------------------")
+            console.log("--------------------------------");
+
             time = Date.now();
             await makePlayerTurn(this.players[Object.keys(this.players)[playerIndex]]);
             console.log(`Took ${Date.now() - time}ms to finish player's round`);
 
             playerIndex++;
             if (playerIndex >= Object.keys(this.players).length) playerIndex = 0;
+
             await nextPlayerTurn();
         }
 
@@ -161,40 +163,41 @@ class GameServer {
 
                 await this.makePlayerTakeSurpriseCard(player);
                 this.sendPlayerUpdateEvent();
-                await delay(2000);
+                await this.delay(2000);
                 await takeSurpriseCardIfPossible(player);
             }
         }
 
-        let canTakeSurpriseCard = (player: Player) => {
-            return this.board.isTriangleSurpriseType(player.position) && player.previousSurpriseTriangle != player.position;
-        }
+        let canTakeSurpriseCard = (player: Player) =>
+            this.board.isTriangleSurpriseType(player.position) &&
+            player.previousSurpriseTriangle != player.position;
 
         let makePlayerTurn = async (player: Player) => {
             return new Promise<void>(async (finishRound) => {
                 await player.playerRoundCallback();
+
                 if (player.doPass) {
                     this.server.sockets.in(["playing", "admin"]).emit("playerPassedTurn", player.uuid);
-                    await delay(4000);
+                    await this.delay(4000);
+
                     finishRound();
                     return;
                 }
 
                 await new Promise<void>((resolve) => {
                     this.makePlayerTakeQuestion(player).then(async info => {
-                        if(info.correct) await this.rollDie(player.uuid, (result) => player.move(result));
+                        if(info.correct) await this.rollDie(player.uuid, (result) =>
+                            player.move(result));
+
                         this.sendPlayerUpdateEvent();
 
-                        console.log(`Triangle ${player.position} is a surprise triangle? ${this.board.isTriangleSurpriseType(player.position)} | Can take card? ${canTakeSurpriseCard(player)}`);
-
                         if (canTakeSurpriseCard(player)) {
-                            delay(2000).then(() => {
+                            this.delay(2000).then(() =>
                                 takeSurpriseCardIfPossible(player).then(() => {
 
                                     this.sendPlayerUpdateEvent();
                                     setTimeout(resolve, 2000);
-                                });
-                            });
+                                }));
                         } else setTimeout(() => {
                             resolve();
                         }, 2000);
@@ -239,7 +242,6 @@ class GameServer {
 
         for(let id in this.players) {
             let p = this.players[id];
-
             playerPos[id] = p.position;
         }
 
@@ -247,29 +249,25 @@ class GameServer {
     }
 
     public async rollDie(playerId: string, callback: (result: number) => void) {
-        const delay = ms => new Promise(res => setTimeout(res, ms));
-
         let randomNumber = Math.floor(Math.random() * 6) + 1;
         this.server.sockets.in(["playing", "admin"]).volatile.emit("playerRolledDie", playerId, randomNumber);
-        await delay(2000);
+
+        await this.delay(2000);
         callback(randomNumber);
     }
 
     public makePlayerTakeSurpriseCard(player: Player) {
-        const delay = ms => new Promise(res => setTimeout(res, ms));
-
         return new Promise<void>((resolve) => {
             let cards = this.cardManager.surpriseCards;
             let random = Math.floor(Math.random() * (cards.length - 1));
-
             let chosenCard = cards[random];
 
             player.socket.volatile.emit("takeSurpriseCard", chosenCard.type, chosenCard.text);
-            player.socket.broadcast.in(["playing", "admin"]).volatile.emit("playerTookSurpriseCard", player.uuid, { cardType: chosenCard.type, text: chosenCard.text });
+            player.socket.broadcast.in(["playing", "admin"]).volatile.emit(
+                "playerTookSurpriseCard", player.uuid, { cardType: chosenCard.type, text: chosenCard.text });
 
-            delay(5000).then(() => {
-                player.actionExecutor.execute(chosenCard.actions).then(() => resolve());
-            });
+            this.delay(5000).then(() =>
+                player.actionExecutor.execute(chosenCard.actions).then(() => resolve()));
         });
     }
 
@@ -277,8 +275,8 @@ class GameServer {
         return new Promise<{ correct: boolean, answer: string }>((resolve) => {
             let questions = this.cardManager.questionCards;
             let random = Math.floor(Math.random() * (questions.length - 1));
-
             let chosenQuestion = questions[random];
+
             console.log(`Correct Answer: ${chosenQuestion.answer}`);
 
             player.socket.broadcast.in(["playing", "admin"]).volatile.emit("playerTookQuestion", player.uuid, {
@@ -298,16 +296,17 @@ class GameServer {
 
                 let correctAnswer = chosenQuestion.answer;
                 let correct = false;
+
                 if (chosenQuestion.doMarkSimilarAsCorrect) {
                     correctAnswer = correctAnswer.toLowerCase()
                         .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
                         .replace(/[^\p{L}\s]/gu, "")
-                        .replace("-", " ");
+                        .replace(/-/g, " ");
 
                     answer = answer.toLowerCase()
                         .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
                         .replace(/[^\p{L}\s]/gu, "")
-                        .replace("-", " ");
+                        .replace(/-/g, " ");
 
                     if (answer === correctAnswer) correct = true;
                 }
@@ -317,20 +316,21 @@ class GameServer {
                     let correctW = correctAnswer.split(" ");
                     let wordsIncluded = true;
 
-                    for(let i of correctW)
-                        if(answer.indexOf(i) == -1) wordsIncluded = false;
-
+                    for(let i of correctW) if(answer.indexOf(i) == -1) { wordsIncluded = false; break; }
                     correct = wordsIncluded;
                 }
 
-                this.server.sockets.volatile.in(["playing", "admin"]).emit("playerAnsweredQuestion", player.uuid, {
+                this.server.sockets.volatile.in(["playing", "admin"]).emit("playerAnsweredQuestion",
+                    player.uuid, {
                     title: chosenQuestion.title,
                     question: chosenQuestion.question,
                     playerAnswer: originalAnswer,
                     wasCorrect: correct
                 });
 
-                if(correct) setTimeout(() => resolve({ correct: correct, answer: originalAnswer }), 4000);
+                if(correct) setTimeout(() =>
+                    resolve({ correct: correct, answer: originalAnswer }), 4000);
+
                 else resolve({ correct: correct, answer: originalAnswer });
             });
         });
@@ -384,7 +384,8 @@ class GameServer {
     }
 
     public addPlayer(socket: Socket) {
-        this.players[socket.data.uuid] = new Player(0, socket.data.username, socket.data.character, socket, socket.data.uuid, this.board);
+        this.players[socket.data.uuid] =
+            new Player(0, socket.data.username, socket.data.character, socket, socket.data.uuid, this.board);
     }
 
     public removePlayer(uuid: string) {

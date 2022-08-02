@@ -34,7 +34,9 @@ abstract class Action<T extends ExistingActions> {
     private readonly _subActions: Action<any>[];
     private readonly _defaultArguments: ActionArguments[T];
 
-    protected constructor(actionType: ExistingActions, subActions: Action<any>[] = [], defaultArguments: ActionArguments[T] = undefined) {
+    protected constructor(actionType: ExistingActions, subActions: Action<any>[] = [],
+                          defaultArguments: ActionArguments[T] = undefined) {
+
         this._actionType = actionType;
         this._subActions = subActions;
         this._defaultArguments = defaultArguments;
@@ -68,7 +70,9 @@ class RollDieAction extends Action<ExistingActions.ROLL_DIE> {
     private readonly _ifSmallerActions: Action<any>[];
     private readonly _ifEqualActions: Action<any>[];
 
-    constructor(actionType: ExistingActions, ifBiggerActions: Action<any>[], ifSmallerActions: Action<any>[], ifEqualActions: Action<any>[], defaultArguments: ActionArguments[ExistingActions.ROLL_DIE]) {
+    constructor(actionType: ExistingActions, ifBiggerActions: Action<any>[], ifSmallerActions: Action<any>[],
+                ifEqualActions: Action<any>[], defaultArguments: ActionArguments[ExistingActions.ROLL_DIE]) {
+
         super(actionType, [], defaultArguments);
 
         this._ifBiggerActions = ifBiggerActions;
@@ -80,9 +84,14 @@ class RollDieAction extends Action<ExistingActions.ROLL_DIE> {
         return new Promise<void>((resolve) => {
             let target = info.target;
 
-            if(!target.ifSmallerTarget && this.defaultArguments.target.ifSmallerTarget) target.ifSmallerTarget = this.defaultArguments.target.ifSmallerTarget;
-            if(!target.ifBiggerTarget && this.defaultArguments.target.ifBiggerTarget) target.ifBiggerTarget = this.defaultArguments.target.ifBiggerTarget;
-            if(!target.ifEqualTarget && this.defaultArguments.target.ifEqualTarget) target.ifEqualTarget = this.defaultArguments.target.ifEqualTarget;
+            if(!target.ifSmallerTarget && this.defaultArguments.target.ifSmallerTarget)
+                target.ifSmallerTarget = this.defaultArguments.target.ifSmallerTarget;
+
+            if(!target.ifBiggerTarget && this.defaultArguments.target.ifBiggerTarget)
+                target.ifBiggerTarget = this.defaultArguments.target.ifBiggerTarget;
+
+            if(!target.ifEqualTarget && this.defaultArguments.target.ifEqualTarget)
+                target.ifEqualTarget = this.defaultArguments.target.ifEqualTarget;
 
             let promises: Promise<void>[] = [];
             promises.push(this.card.cardManager.server.rollDie(info.playerId, (result) => {
@@ -121,7 +130,6 @@ class OthersAction extends Action<ExistingActions.OTHERS> {
             let players = this.card.cardManager.server.getPlayers();
             for(let playerId in players) {
                 let p = players[playerId];
-
                 if(p.uuid !== selfPlayer.uuid) targets.push(p);
             }
 
@@ -141,7 +149,9 @@ class TakeQuestionAction extends Action<ExistingActions.TAKE_QUESTION> {
         this._ifWrongActions = ifWrongActions;
     }
 
-    execute(target: ActionArguments[ExistingActions.TAKE_QUESTION], callbacks: ActionCallbacks[ExistingActions.TAKE_QUESTION]) {
+    execute(target: ActionArguments[ExistingActions.TAKE_QUESTION],
+            callbacks: ActionCallbacks[ExistingActions.TAKE_QUESTION]) {
+
         return new Promise<void>((resolve) => {
             this.card.cardManager.server.makePlayerTakeQuestion(target).then((info) => {
                 if(info.correct) callbacks.ifCorrect().then(resolve);
@@ -164,7 +174,9 @@ class ChooseEnemyAction extends Action<ExistingActions.CHOOSE_ENEMY> {
         super(actionType, subActions);
     }
 
-    execute(target: ActionArguments[ExistingActions.CHOOSE_ENEMY], callback: ActionCallbacks[ExistingActions.CHOOSE_ENEMY]) {
+    execute(target: ActionArguments[ExistingActions.CHOOSE_ENEMY],
+            callback: ActionCallbacks[ExistingActions.CHOOSE_ENEMY]) {
+
         return new Promise<void>((resolve) => {
             this.card.cardManager.server.makePlayerChoosePlayer(target).then((result) => {
                 callback(result).then(resolve);
@@ -178,7 +190,9 @@ class NextRoundAction extends Action<ExistingActions.NEXT_ROUND> {
         super(actionType, subActions);
     }
 
-    execute(target: ActionArguments[ExistingActions.NEXT_ROUND], callback: ActionCallbacks[ExistingActions.NEXT_ROUND]) {
+    execute(target: ActionArguments[ExistingActions.NEXT_ROUND],
+            callback: ActionCallbacks[ExistingActions.NEXT_ROUND]) {
+
         return new Promise<void>((resolve) => {
             target.playerRoundCallback = () => {
                 return new Promise<void>((resolve) => {
@@ -186,6 +200,7 @@ class NextRoundAction extends Action<ExistingActions.NEXT_ROUND> {
                     target.playerRoundCallback = () => { return new Promise<void>((resolve) => resolve()); };
                 })
             }
+
             resolve();
         });
     }
@@ -200,13 +215,8 @@ class AdvanceAction extends Action<ExistingActions.ADVANCE> {
         return new Promise<void>((resolve) => {
             if(!info.amount && this.defaultArguments.amount) info.amount = this.defaultArguments.amount;
 
-            console.log(`${info.targets.length} players passed as targets to advance action`);
-
             if(info.amount < 0) info.amount *= -1;
-            for(let p of info.targets) {
-                console.log(`moving ${p.playerName} ${info.amount} houses ahead`);
-                p.move(info.amount);
-            }
+            for(let p of info.targets) p.move(info.amount);
             resolve();
         });
     }
@@ -222,10 +232,7 @@ class BackAction extends Action<ExistingActions.BACK> {
             if(!info.amount && this.defaultArguments.amount) info.amount = this.defaultArguments.amount;
 
             if(info.amount > 0) info.amount *= -1;
-            for(let p of info.targets) {
-                console.log(`moving ${p.playerName} ${info.amount} houses back`);
-                p.move(info.amount);
-            }
+            for(let p of info.targets) p.move(info.amount);
             resolve();
         });
     }
@@ -371,11 +378,12 @@ class CardManager {
             let ifSmallerActions = actions.if_smaller ? buildActionsGeneral(actions.if_smaller.do) : [];
             let ifEqualActions = actions.if_equal ? buildActionsGeneral(actions.if_equal.do) : [];
 
-            return new RollDieAction(ExistingActions.ROLL_DIE, ifBiggerActions, ifSmallerActions, ifEqualActions, { target: {
-                ifEqualTarget: actions.if_equal?.target || 0,
-                ifBiggerTarget: actions.if_bigger?.target || 0,
-                ifSmallerTarget: actions.if_smaller?.target || 0
-            }});
+            return new RollDieAction(ExistingActions.ROLL_DIE, ifBiggerActions, ifSmallerActions, ifEqualActions,
+                { target: {
+                    ifEqualTarget: actions.if_equal?.target || 0,
+                    ifBiggerTarget: actions.if_bigger?.target || 0,
+                    ifSmallerTarget: actions.if_smaller?.target || 0
+                }});
         }
 
         let buildActionsForTakeQuestion = (actions: TakeQuestionOptions) => {
@@ -388,9 +396,13 @@ class CardManager {
         let buildSimpleActions = (actions: SurpriseCardSimpleActions) => {
             let ac: Action<any>[] = [];
 
-            if(actions.advance) ac.push(new AdvanceAction(ExistingActions.ADVANCE, { amount: actions.advance }));
+            if(actions.advance) ac.push(new AdvanceAction(ExistingActions.ADVANCE,
+                { amount: actions.advance }));
+
+            if(actions.advance_multiplier) ac.push(new AdvanceMultiplierAction(ExistingActions.ADVANCE_MULTIPLIER,
+                { amount: actions.advance_multiplier }));
+
             if(actions.back) ac.push(new BackAction(ExistingActions.BACK, { amount: actions.back }));
-            if(actions.advance_multiplier) ac.push(new AdvanceMultiplierAction(ExistingActions.ADVANCE_MULTIPLIER, { amount: actions.advance_multiplier }));
             if(actions.pass) ac.push(new PassAction(ExistingActions.PASS, { do: actions.pass }));
 
             return ac;
@@ -406,9 +418,14 @@ class CardManager {
                 pass: actions.pass
             }));
 
-            if(actions.others) ac.push(new OthersAction(ExistingActions.OTHERS, buildSimpleActions(actions.others)));
-            if(actions.next_round) ac.push(new NextRoundAction(ExistingActions.NEXT_ROUND, buildSimpleActions(actions.next_round)));
-            if(actions.choose_enemy) ac.push(new ChooseEnemyAction(ExistingActions.CHOOSE_ENEMY, buildSimpleActions(actions.choose_enemy)));
+            if(actions.others) ac.push(new OthersAction(ExistingActions.OTHERS,
+                buildSimpleActions(actions.others)));
+
+            if(actions.next_round) ac.push(new NextRoundAction(ExistingActions.NEXT_ROUND,
+                buildSimpleActions(actions.next_round)));
+
+            if(actions.choose_enemy) ac.push(new ChooseEnemyAction(ExistingActions.CHOOSE_ENEMY,
+                buildSimpleActions(actions.choose_enemy)));
 
             if(actions.take_question) ac.push(buildActionsForTakeQuestion(actions.take_question));
             if(actions.roll_die) ac.push(buildActionsForRollDie(actions.roll_die));
@@ -456,76 +473,76 @@ class ActionExecutor {
         return new Promise<void>((resolve) => {
             for(let ac of actions) {
                 console.log(`Running action of type: ${ac.actionType}`);
+
                 if(ac instanceof AdvanceAction) {
                     let a = ac as AdvanceAction;
+
                     a.execute({ targets: targets.length <= 0 ? [this.target] : targets }).then(resolve);
                     return;
-                } else if(ac instanceof BackAction) {
+                }
+                else if(ac instanceof BackAction) {
                     let a = ac as BackAction;
+
                     a.execute({ targets: targets.length <= 0 ? [this.target] : targets }).then(resolve);
                     return;
-                } else if(ac instanceof AdvanceMultiplierAction) {
+                }
+                else if(ac instanceof AdvanceMultiplierAction) {
                     let a = ac as AdvanceMultiplierAction;
+
                     a.execute({ targets: targets.length <= 0 ? [this.target] : targets }).then(resolve);
                     return;
-                } else if(ac instanceof PassAction) {
+                }
+                else if(ac instanceof PassAction) {
                     let a = ac as PassAction;
+
                     a.execute({ targets: targets.length <= 0 ? [this.target] : targets }).then(resolve);
                     return;
-                } else if(ac instanceof TakeQuestionAction) {
+                }
+                else if(ac instanceof TakeQuestionAction) {
                     let a = ac as TakeQuestionAction;
+
                     a.execute(this.target, {
-                        ifCorrect: () => { return new Promise<void>((resolve) => {
-                                this.execute(a.ifCorrectActions).then(resolve);
-                            }); },
-                        ifWrong: () => { return new Promise<void>((resolve) => {
-                           this.execute(a.ifWrongActions).then(resolve);
-                        }); }
+                        ifCorrect: () => new Promise<void>((resolve) =>
+                                this.execute(a.ifCorrectActions).then(resolve)),
+
+                        ifWrong: () => new Promise<void>((resolve) =>
+                            this.execute(a.ifWrongActions).then(resolve))
                     }).then(resolve);
+
                     return;
-                } else if(ac instanceof ChooseEnemyAction) {
+                }
+                else if(ac instanceof ChooseEnemyAction) {
                     let a = ac as ChooseEnemyAction;
-                    a.execute(this.target, (chosen) => {
-                        return new Promise((resolve) => {
-                           this.execute(a.subActions, [chosen]).then(resolve);
-                        });
-                    }).then(resolve);
+
+                    a.execute(this.target, (chosen) => new Promise((resolve) =>
+                            this.execute(a.subActions, [chosen]).then(resolve))).then(resolve);
                     return;
                 } else if(ac instanceof RollDieAction) {
                     let a = ac as RollDieAction;
+
                     a.execute({ playerId: this.target.uuid }, {
-                        ifBigger: () => {
-                            return new Promise<void>((resolve) => {
-                               this.execute(a.ifBiggerActions).then(resolve);
-                            });
-                        },
-                        ifSmaller: () => {
-                            return new Promise<void>((resolve) => {
-                               this.execute(a.ifSmallerActions).then(resolve);
-                            });
-                        },
-                        ifEqual: () => {
-                            return new Promise<void>((resolve) => {
-                               this.execute(a.ifEqualActions).then(resolve);
-                            });
-                        }
+                        ifBigger: () => new Promise<void>((resolve) =>
+                               this.execute(a.ifBiggerActions).then(resolve)),
+
+                        ifSmaller: () => new Promise<void>((resolve) =>
+                               this.execute(a.ifSmallerActions).then(resolve)),
+
+                        ifEqual: () => new Promise<void>((resolve) =>
+                               this.execute(a.ifEqualActions).then(resolve))
                     }).then(resolve);
                     return;
                 } else if(ac instanceof NextRoundAction) {
                     let a = ac as NextRoundAction;
-                    a.execute(this.target, () => {
-                        return new Promise<void>((resolve) => {
-                           this.execute(a.subActions).then(resolve);
-                        });
-                    }).then(resolve);
+
+                    a.execute(this.target, () => new Promise<void>((resolve) =>
+                           this.execute(a.subActions).then(resolve))).then(resolve);
+
                     return;
                 } else if(ac instanceof OthersAction) {
                     let a = ac as OthersAction;
-                    a.execute(this.target, (players) => {
-                        return new Promise<void>((resolve) => {
-                            this.execute(a.subActions, players).then(resolve);
-                        });
-                    }).then(resolve);
+
+                    a.execute(this.target, (players) => new Promise<void>((resolve) =>
+                            this.execute(a.subActions, players).then(resolve))).then(resolve);
                 }
             }
 
@@ -586,7 +603,9 @@ interface CardFileStructure {
 }
 
 interface ActionCallbacks {
-    ROLL_DIE?: { ifBigger?: (result: number) => Promise<void>, ifSmaller?: (result: number) => Promise<void>, ifEqual?: (result: number) => Promise<void> };
+    ROLL_DIE?: { ifBigger?: (result: number) => Promise<void>, ifSmaller?: (result: number) =>
+            Promise<void>, ifEqual?: (result: number) => Promise<void> };
+
     CHOOSE_ENEMY?: (player: Player) => Promise<void>;
     TAKE_QUESTION?: { ifCorrect?: () => Promise<void>, ifWrong?: () => Promise<void> };
     NEXT_ROUND?: () => Promise<void>;
@@ -598,7 +617,9 @@ interface ActionCallbacks {
 }
 
 interface ActionArguments {
-    ROLL_DIE: { playerId?: string, target?: { ifBiggerTarget?: number, ifSmallerTarget?: number, ifEqualTarget?: number } };
+    ROLL_DIE: { playerId?: string, target?:
+            { ifBiggerTarget?: number, ifSmallerTarget?: number, ifEqualTarget?: number } };
+
     CHOOSE_ENEMY: Player;
     TAKE_QUESTION: Player;
     NEXT_ROUND: Player;

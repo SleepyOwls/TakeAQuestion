@@ -3,7 +3,6 @@ import {Renderer} from "./Renderer.js";
 import {BoardClient} from "./BoardClient.js";
 import {ClientToServerEvents, ServerToClientEvents} from "../Utils/Interfaces";
 import {InitialBoardInfo} from "../Utils/BoardInfo.js";
-import {Vector2f} from "../Utils/Vector2f.js";
 import {MatchCreator} from "./MatchCreator.js";
 import {Player} from "./Player.js";
 
@@ -14,7 +13,7 @@ abstract class Client {
     protected view: HTMLCanvasElement;
     protected renderer: Renderer;
 
-    protected _board: BoardClient | null = null;
+    protected _board: BoardClient;
     protected uuid: string;
 
     protected players: { [key: string]: Player };
@@ -26,7 +25,7 @@ abstract class Client {
 
     private confettiRendererInterval;
     private confettiRemoverInterval;
-    private confettiContainer: HTMLDivElement | undefined = undefined;
+    private confettiContainer: HTMLDivElement;
 
     public static readonly characters = {
         ALBERT_EINSTEIN: document.createElement("img"),
@@ -43,12 +42,10 @@ abstract class Client {
         this.ioClient = io();
 
         this.ioClient.on("connect", () => {
-            if(this.uuid) {
-                this.ioClient.emit("reconnecting", this.uuid);
-            }
+            if(this.uuid) this.ioClient.emit("reconnecting", this.uuid);
         });
 
-        this.ioClient.io.on("reconnect", () => { //TODO: Send player data when it's reconnecting
+        this.ioClient.io.on("reconnect", () => {
             Swal.fire({
                 title: "Reconectado!",
                 text: "A conexão com o servidor foi restabelecida!",
@@ -98,6 +95,7 @@ abstract class Client {
 
         this.ioClient.on("playerInfo", (data) => {
             this.uuid = data.uuid;
+            this.players[data.uuid].position = data.position;
         });
 
         this.ioClient.on("initialGameInfo", (info) => {
@@ -144,7 +142,7 @@ abstract class Client {
             Swal.fire({
                 title: `${p.playerName} venceu a partida!`,
                 text: `${p.playerName} foi o primeiro jogador a chegar à ultima casa!`,
-                timer: 2000,
+                timer: 5000,
                 timerProgressBar: true,
                 backdrop: "none",
                 showCloseButton: false,
@@ -197,8 +195,9 @@ abstract class Client {
         });
 
         this.ioClient.on("playerTookSurpriseCard", (player, info) => {
+            let cardType = info.cardType === "luck" ? "Sorte!" : "Azar!";
             Swal.fire({
-                title: `${this.players[player].playerName} pegou uma carta surpresa!\n${info.cardType === "luck" ? "Sorte!" : "Azar!"}`,
+                title: `${this.players[player].playerName} pegou uma carta surpresa!\n${cardType}`,
                 text: info.text,
                 timer: 5000,
                 timerProgressBar: true,
@@ -231,9 +230,10 @@ abstract class Client {
 
         this.ioClient.on("playerAnsweredQuestion", (player, info) => {
             let p = this.players[player].playerName;
+            let answerState = info.wasCorrect ? "correta" : "errada";
             Swal.fire({
                 title: `${p} respondeu à pergunta!`,
-                text: `E a resposta está ${info.wasCorrect ? "correta" : "errada"}!\nA resposta de ${p} foi: ${info.playerAnswer}`,
+                text: `E a resposta está ${answerState}!\nA resposta de ${p} foi: ${info.playerAnswer}`,
                 showConfirmButton: false,
                 showCloseButton: false,
                 showDenyButton: false,
@@ -294,17 +294,16 @@ abstract class Client {
         }
 
         this.pingCheck();
-
         setTimeout(() => { this.ping(); }, 2000);
     }
 
-    protected pingCheck(): void {}
+    protected abstract pingCheck(): void;
 
     protected setupBoard(info: InitialBoardInfo) {
         this._board = new BoardClient({
             boardSize: info.getBoardSize(),
             triangles: info.getTriangleTypes()
-        }, new Vector2f(Renderer.canvasWidth / 2, Renderer.canvasHeight / 2), this.renderer);
+        }, this.renderer);
 
         let players = info.getPlayers();
         this.players = {};
@@ -402,14 +401,18 @@ abstract class Client {
 
         if(this._board) this._board.render();
         for(let playerId in this.players) this.players[playerId]?.render();
-        this.renderer.drawText(`FPS: ${this.framerate}`, 200, 2160 - 80, "white", false, 60, "Arial");
+        this.renderer.drawText(`FPS: ${this.framerate}`, 200, 2160 - 80, "white", false,
+            60, "Arial");
 
-        if(this.board) this.renderer.drawText("Jogadores", 300, 60, "white", false, 50, "Arial");
+        if(this.board) this.renderer.drawText("Jogadores", 300, 60, "white", false, 50,
+            "Arial");
+
         let nameY = 120;
         for(let id in this.players) {
             let p = this.players[id].playerName;
 
-            this.renderer.drawText(p, 300, nameY, p != this.playerTurn ? "white" : "#4ce577", false, 50, "Arial");
+            this.renderer.drawText(p, 300, nameY, p != this.playerTurn ? "white" : "#4ce577", false,
+                50, "Arial");
             nameY += 60;
         }
     }
@@ -498,9 +501,7 @@ class PlayerClient extends Client {
                     if(!inputValue) return "Você precisa inserir uma resposta!";
                 }
             }).then((result) => {
-                if(result.isConfirmed) {
-                    callback(result.value as string);
-                }
+                if(result.isConfirmed) callback(result.value as string);
             });
         });
 
@@ -540,7 +541,6 @@ class PlayerClient extends Client {
 
     private openClientInfoForm() {
         let playerName: string = "";
-        let character: string = "";
 
         Swal.fire({
             title: "Entrar na partida",
@@ -593,11 +593,8 @@ class PlayerClient extends Client {
                 allowOutsideClick: false,
                 allowEscapeKey: false
             }).then((result) => {
-                if(result.isConfirmed) {
-                    character = result.value;
-
-                    this.ioClient.emit("joinGame", { username: playerName, character: character });
-                }
+                if(result.isConfirmed)
+                    this.ioClient.emit("joinGame", { username: playerName, character: result.value });
             });
         });
     }
@@ -605,11 +602,7 @@ class PlayerClient extends Client {
     protected pingCheck() {
         if(!this.isConnected()) {
             this.ioClient.timeout(5000).emit("isMatchOpen", (isOpen) => {
-                if(isOpen == true) {
-                    this.openClientInfoForm();
-                } else {
-                    console.log("No match open at the moment");
-                }
+                if(isOpen == true) this.openClientInfoForm();
             });
         }
     }
@@ -645,7 +638,7 @@ class AdminClient extends Client {
 
     public createMatch(creator: MatchCreator) {
         this.ioClient.emit("createNewMatch", { boardSize: creator.getBoardSize(), triangles: creator.getTriangles() }, () => {
-            this._board = new BoardClient({ boardSize: creator.getBoardSize(), triangles: creator.getTriangles() }, new Vector2f(Renderer.canvasWidth / 2, Renderer.canvasHeight / 2), this.renderer);
+            this._board = new BoardClient({ boardSize: creator.getBoardSize(), triangles: creator.getTriangles() }, this.renderer);
             this.matchCreator.destroy();
             delete this.matchCreator;
             this.creatingMatch = false;

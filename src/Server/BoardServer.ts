@@ -21,16 +21,10 @@ class BoardServer {
         return this.triangles[index].type == TriangleType.SURPRISE;
     }
 
-    public isTriangleEmptyType(index: number) {
-        return this.triangles[index].type == TriangleType.EMPTY;
-    }
-
     public serializeBoard() {
         let serializedTriangles: number[] = [];
 
-        for(let i = 0; i < this.triangles.length; i++)
-            serializedTriangles.push(this.triangles[i].type.valueOf());
-
+        for(let i = 0; i < this.triangles.length; i++) serializedTriangles.push(this.triangles[i].type.valueOf());
         return { boardSize: this.size, triangles: serializedTriangles };
     }
 

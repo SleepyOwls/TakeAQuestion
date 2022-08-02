@@ -19,18 +19,17 @@ class WebServer {
         this.app.use(express.json());
         this.app.use("/res", express.static(path.join(__dirname, "../res/")));
         
-        this.router.get("/", (req, res) => { res.send(fs.readFileSync(path.join(__dirname, "../public/index.html"), "utf-8")); });
+        this.router.get("/", (req, res) =>
+            res.send(fs.readFileSync(path.join(__dirname, "../public/index.html"), "utf-8")));
 
         this.router.get("/admin", (req, res) => {
             const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
             if(ip != "::1") res.redirect("/");
 
             res.sendFile(path.join(__dirname, "../public/admin.html"));
-            // res.send(fs.readFileSync(path.join(__dirname, "../public/admin.html"), "utf-8"));
         });
 
         this.app.use(this.router);
-
         this.server = this.app.listen(8080, () => { console.log("Server is running!") });
     }
 
