@@ -659,21 +659,24 @@
         "question": "Sou a onda eletromagnética com a frequência mais baixa.",
         "answer": "Onda de Rádio",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ondas de rádio" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Sou responsável pelas transmissões TV e telefonia celular",
         "answer": "Onda de Rádio",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ondas de rádio" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Radiotelescópios conseguem me captar vinda do Universo afora.",
         "answer": "Onda de Rádio",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ondas de rádio" ]
       },
       {
         "title": "Quem sou eu?",
@@ -708,161 +711,184 @@
         "question": "Sou o responsável pelo bronzeamento da pele das pessoas.",
         "answer": "Ultravioleta",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ulta violeta" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "A parte mais perigosa de mim é bloqueada pela camada de ozônio.",
         "answer": "Ultravioleta",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ulta violeta" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Em excesso, posso alterar o DNA das células quebrando ligações químicas e liberando moléculas reativas que podem causar câncer de pele.",
         "answer": "Ultravioleta",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ulta violeta" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Sou usado em lâmpadas anti-insetos e também para esterilizar a água potável.",
         "answer": "Ultravioleta",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ulta violeta" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Quem me descobriu foi Johann Wilhelm Ritter em 1801.",
         "answer": "Ultravioleta",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ulta violeta" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Coisas quentes me liberam e não sou o calor.",
         "answer": "Infravermelho",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "infra vermelho" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "A atmosfera terrestre bloqueia a maior parte de mim que vem do Sol.",
         "answer": "Infravermelho",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "infra vermelho" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Controles remotos me usam para mandar comandos às televisões.",
         "answer": "Infravermelho",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "infra vermelho" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Quem me descobriu foi Willian Herschel em 1800.",
         "answer": "Infravermelho",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "infra vermelho" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Câmeras de visão térmica me captam.",
         "answer": "Infravermelho",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "infra vermelho" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Sou uma radiação de grande energia que pode causar e curar o câncer.",
         "answer": "Raios-X",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Os radiologistas utilizam aventais forrados com chumbo para se protegerem de mim.",
         "answer": "Raios-X",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Embora eu seja perigoso, minha capacidade de ver dentro das coisas me torna útil na medicina, principalmente em localizar ossos quebrados.",
         "answer": "Raios-X",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Eu apareço quando correntes de elétrons de alta energia se chocam contra um alvo metálico.",
         "answer": "Raios-X",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Em 1999, o Observatório Espacial Chandra, captando a minha radiação, revelou um Universo onde buracos negros destroem estrelas e estrelas de nêutrons explodem em pedaços.",
         "answer": "Raios-X",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Wilhem Röntgen me descobriu em 1875.",
         "answer": "Raios-X",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Sou uma forma letal de radiação e causo sérios danos ao ser humano.",
         "answer": "Raios Gama",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Tenho o comprimento de onda mais curto e o fóton de maior energia",
         "answer": "Raios Gama",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Sou o maior causador de envenenamento por radiação.",
         "answer": "Raios Gama",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Atravesso qualquer material como se ele não existisse.",
         "answer": "Raios Gama",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Na década de 1960, colocaram sensores no espaço para detectar testes nucleares ilegais e em vez disso descobriram as mais violentas explosões no Universo.",
         "answer": "Raios Gama",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Esterilizo comida e destruo células cancerígenas.",
         "answer": "Raios Gama",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Paul Villard me descobriu em 1900.",
         "answer": "Raios Gama",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
       },
       {
         "title": "Quem sou eu?",
@@ -1086,49 +1112,56 @@
         "question": "Sou detectada por um aparelho chamado Contador Geiger e medido em becquerels.",
         "answer": "Radioatividade",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Sou o fruto de uma batalha entre o eletromagnetismo e a força nuclear forte.",
         "answer": "Radioatividade",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Quando um átomo se parte, sou a responsável pelas partículas alfa, partículas beta e explosões de raios gama.",
         "answer": "Radioatividade",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Antes de ser bem compreendida, muitos cientistas morreram por minha causa.",
         "answer": "Radioatividade",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Estou presente nas usinas de energia nuclear, esterilizo alimentos, dato a idade de artefatos antigos e mato células cancerosas.",
         "answer": "Radioatividade",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Meu nível de atividade é medido pelo tamanho da minha “meia vida”, que é o tempo para que eu divida metade dos meus átomos.",
         "answer": "Radioatividade",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
       },
       {
         "title": "Quem sou eu?",
         "question": "Henri Becquerel me descobriu em 1896.",
         "answer": "Radioatividade",
         "markSimilarAsCorrect": true,
-        "correctIfCorrectAnswerIsOnUserAnswer": true
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
       },
       {
         "title": "Quem sou eu?",

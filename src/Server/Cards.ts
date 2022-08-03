@@ -306,13 +306,15 @@ class QuestionCard {
     private readonly _answer: string;
     private readonly _markSimilarAsCorrect: boolean;
     private readonly _correctIfCorrectAnswerIsOnUserAnswer: boolean;
+    private readonly _aliases: string[];
 
-    constructor(title: string, question: string, answer: string, markSimilarAsCorrect: boolean, correctIfCorrectAnswerIsOnUserAnswer: boolean) {
+    constructor(title: string, question: string, answer: string, markSimilarAsCorrect: boolean, correctIfCorrectAnswerIsOnUserAnswer: boolean, aliases: string[] = []) {
         this._title = title;
         this._question = question;
         this._answer = answer;
         this._markSimilarAsCorrect = markSimilarAsCorrect;
         this._correctIfCorrectAnswerIsOnUserAnswer = correctIfCorrectAnswerIsOnUserAnswer;
+        this._aliases = aliases;
     }
 
     get title() {
@@ -333,6 +335,10 @@ class QuestionCard {
 
     get isCorrectIfCorrectAnswerIsOnUserAnswer() {
         return this._correctIfCorrectAnswerIsOnUserAnswer;
+    }
+
+    get aliases() {
+        return this._aliases;
     }
 }
 
@@ -364,7 +370,8 @@ class CardManager {
                 c.question,
                 c.answer,
                 c.markSimilarAsCorrect,
-                c.correctIfCorrectAnswerIsOnUserAnswer
+                c.correctIfCorrectAnswerIsOnUserAnswer,
+                c.aliases
             ));
 
         return generatedCards;
@@ -584,7 +591,8 @@ interface QuestionCardOptions {
     question: string,
     answer: string,
     markSimilarAsCorrect: boolean,
-    correctIfCorrectAnswerIsOnUserAnswer: boolean
+    correctIfCorrectAnswerIsOnUserAnswer: boolean,
+    aliases: string[]
 }
 
 interface SurpriseCardOptions {

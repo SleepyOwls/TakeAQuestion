@@ -131,7 +131,7 @@ abstract class Client {
                 showConfirmButton: false,
                 allowEscapeKey: false,
                 allowOutsideClick: false,
-                icon: "info"
+                iconHtml: "<img src='/res/img/die.png' width='80px' height='80px' alt='DIE_ICON'>"
             });
         });
 
@@ -206,9 +206,11 @@ abstract class Client {
                 showConfirmButton: false,
                 showDenyButton: false,
                 showCancelButton: false,
-                icon: info.cardType === "luck" ? "success" : "error",
                 allowEscapeKey: false,
-                allowOutsideClick: false
+                allowOutsideClick: false,
+                iconHtml: info.cardType === "luck"
+                    ? "<img src='/res/img/luck.png' width='80px' height='80px' alt='ICON'>"
+                    : "<img src='/res/img/bad_luck.png' width='80px' height='80px' alt='ICON'>"
             });
         });
 
@@ -461,7 +463,6 @@ class PlayerClient extends Client {
             Swal.fire({
                 title: `Carta surpresa: ${type === "luck" ? "Sorte!" : "Azar!"}`,
                 text: text,
-                icon: type === "luck" ? "success" : "error",
                 showCancelButton: false,
                 showDenyButton: false,
                 showConfirmButton: false,
@@ -469,7 +470,10 @@ class PlayerClient extends Client {
                 backdrop: "none",
                 timer: 5000,
                 timerProgressBar: true,
-                allowOutsideClick: false
+                allowOutsideClick: false,
+                iconHtml: type === "luck"
+                    ? "<img src='/res/img/luck.png' width='80px' height='80px' alt='ICON'>"
+                    : "<img src='/res/img/bad_luck.png' width='80px' height='80px' alt='ICON'>"
             })
         })
 

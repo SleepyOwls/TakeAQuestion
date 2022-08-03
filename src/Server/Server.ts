@@ -203,14 +203,18 @@ class GameServer {
                     });
                 });
 
-                let positionIsZero = player.position === 0;
-                let movedForward = player.movedForward;
+                for(let id in this.players) {
+                    let p = this.players[id];
 
-                if(positionIsZero && movedForward) {
-                    console.log(`=-=-=-=-=-=-=-=--=-=[ ${player.playerName} Won the game! ]=-=-=-=-=-=-=-=--=-=`);
-                    this.server.sockets.in([ "playing", "admin" ]).emit("playerWon", player.uuid);
-                    this.matchEnded = true;
-                    setTimeout(() => this.endMatch(), 30000);
+                    let positionIsZero = p.position === 0;
+                    let movedForward = p.movedForward;
+
+                    if(positionIsZero && movedForward) {
+                        console.log(`=-=-=-=-=-=-=-=--=-=[ ${p.playerName} Won the game! ]=-=-=-=-=-=-=-=--=-=`);
+                        this.server.sockets.in([ "playing", "admin" ]).emit("playerWon", p.uuid);
+                        this.matchEnded = true;
+                        setTimeout(() => this.endMatch(), 30000);
+                    }
                 }
 
                 finishRound();
@@ -283,7 +287,8 @@ class GameServer {
                 question: chosenQuestion.question
             });
 
-            if(this.cardManager.useTimer) setTimeout(() => { resolve({ correct: false, answer: "" }) }, this.cardManager.timer * 1000);
+            if(this.cardManager.useTimer) setTimeout(() => { resolve({ correct: false, answer: "" }) },
+                this.cardManager.timer * 1000);
             player.socket.volatile.emit("takeQuestion", {
                 title: chosenQuestion.title,
                 question: chosenQuestion.question,
@@ -299,23 +304,55 @@ class GameServer {
                 if (chosenQuestion.doMarkSimilarAsCorrect) {
                     correctAnswer = correctAnswer.toLowerCase()
                         .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-                        .replace(/[^\p{L}\s]/gu, "")
-                        .replace(/-/g, " ");
+                        .replace(/[^\p{L}\s!-]/gu, "")
+                        .replace(/-/g, " ")
+                        .replace(/\s\s+/g, " ");
 
                     answer = answer.toLowerCase()
                         .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-                        .replace(/[^\p{L}\s]/gu, "")
-                        .replace(/-/g, " ");
+                        .replace(/[^\p{L}\s!-]/gu, "")
+                        .replace(/-/g, " ")
+                        .replace(/\s\s+/g, " ");
 
                     if (answer === correctAnswer) correct = true;
-                }
 
+                    if(!correct && chosenQuestion.aliases) {
+                        for(let alias of chosenQuestion.aliases) {
+                            alias = alias.toLowerCase()
+                                .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+                                .replace(/[^\p{L}\s!-]/gu, "")
+                                .replace(/-/g, " ")
+                                .replace(/\s\s+/g, " ");
+
+                            if(answer === alias) { correct = true; break; }
+                        }
+                    }
+                }
 
                 if (chosenQuestion.isCorrectIfCorrectAnswerIsOnUserAnswer) {
                     let correctW = correctAnswer.split(" ");
                     let wordsIncluded = true;
 
                     for(let i of correctW) if(answer.indexOf(i) == -1) { wordsIncluded = false; break; }
+
+                    if(!wordsIncluded && chosenQuestion.aliases.length > 0) { // Try the aliases if available
+                        for(let alias of chosenQuestion.aliases) {
+                            correctW = alias.split(" ");
+
+                            wordsIncluded = true;
+
+                            for(let i of correctW) {
+                                if(chosenQuestion.doMarkSimilarAsCorrect) i = i.toLowerCase()
+                                    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+                                    .replace(/[^\p{L}\s!-]/gu, "")
+                                    .replace(/-/g, " ")
+                                    .replace(/\s\s+/g, " ");
+
+                                if(answer.indexOf(i) == -1) { wordsIncluded = false; break; }
+                            }
+                        }
+                    }
+
                     correct = wordsIncluded;
                 }
 
