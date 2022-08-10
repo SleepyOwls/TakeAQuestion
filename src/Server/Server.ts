@@ -21,7 +21,9 @@ class GameServer {
     private players: { [key: string]: Player };
     private cardManager: CardManager;
 
-    private readonly delay = ms => new Promise(res => setTimeout(res, ms));
+    private playerRoundCallback: () => void;
+
+    private readonly delay = (ms: number) => new Promise(res => setTimeout(res, ms));
     
     constructor(expressServer: WebServer) {
         console["originalLog"] = console.log.bind(console);
@@ -53,6 +55,7 @@ class GameServer {
                                 { playerName: p.playerName, uuid: socket.data.uuid });
 
                             this.removePlayer(socket.data.uuid);
+                            this.playerRoundCallback();
                         }
                     }, 8000);
                 }
@@ -174,6 +177,8 @@ class GameServer {
 
         let makePlayerTurn = async (player: Player) => {
             return new Promise<void>(async (finishRound) => {
+                this.playerRoundCallback = finishRound;
+
                 await player.playerRoundCallback();
 
                 if (player.doPass) {
@@ -287,8 +292,19 @@ class GameServer {
                 question: chosenQuestion.question
             });
 
-            if(this.cardManager.useTimer) setTimeout(() => { resolve({ correct: false, answer: "" }) },
-                this.cardManager.timer * 1000);
+            let tenSecLeftCounter;
+            
+            if(this.cardManager.useTimer) {
+                setTimeout(() => {
+                    this.server.emit("playerPassedTurn", player.uuid);
+                    this.delay(4000).then(() => resolve({ correct: false, answer: "" }));
+                }, this.cardManager.timer * 1000);
+
+                tenSecLeftCounter = setTimeout(() => {
+                    this.server.emit("playerHasTenSecLeft");
+                }, (this.cardManager.timer - 10) * 1000);    
+            }
+
             player.socket.volatile.emit("takeQuestion", {
                 title: chosenQuestion.title,
                 question: chosenQuestion.question,
@@ -296,6 +312,8 @@ class GameServer {
                 useTimer: this.cardManager.useTimer
             }, (answer: string) => {
                 if (!answer) return;
+                clearTimeout(tenSecLeftCounter);
+
                 let originalAnswer = answer;
 
                 let correctAnswer = chosenQuestion.answer;

@@ -5,6 +5,7 @@ import {ClientToServerEvents, ServerToClientEvents} from "../Utils/Interfaces";
 import {InitialBoardInfo} from "../Utils/BoardInfo.js";
 import {MatchCreator} from "./MatchCreator.js";
 import {Player} from "./Player.js";
+import { CounterAnimation } from "./CounterAnimation.js";
 
 import Swal from "sweetalert2";
 
@@ -23,6 +24,9 @@ abstract class Client {
 
     protected playerTurn: string = "";
 
+    protected doTenSecCounter: boolean;
+    protected counterAnimation: CounterAnimation;
+
     private confettiRendererInterval;
     private confettiRemoverInterval;
     private confettiContainer: HTMLDivElement;
@@ -40,6 +44,8 @@ abstract class Client {
         this.setupView();
 
         this.ioClient = io();
+
+        this.doTenSecCounter = false;
 
         this.ioClient.on("connect", () => {
             if(this.uuid) this.ioClient.emit("reconnecting", this.uuid);
@@ -155,9 +161,27 @@ abstract class Client {
             });
         });
 
+        this.ioClient.on("playerHasTenSecLeft", () => {
+            this.doTenSecCounter = true;
+            let delay = (ms: number) => new Promise(res => setTimeout(res, ms));
+            
+            let tenSecCounter = 10;
+            let add = () => {
+                if(tenSecCounter > 0) { 
+                    this.counterAnimation = new CounterAnimation(120, tenSecCounter, this.renderer);
+                    tenSecCounter--; 
+                    delay(1000).then(() => add());
+                }
+            }
+
+            add();
+        });
 
         this.ioClient.on("playerPassedTurn", (player) => {
             let p = this.players[player];
+
+            this.doTenSecCounter = false;
+            this.counterAnimation = undefined;
 
             Swal.fire({
                 title: `${p.playerName} passou a vez!`,
@@ -233,6 +257,7 @@ abstract class Client {
         this.ioClient.on("playerAnsweredQuestion", (player, info) => {
             let p = this.players[player].playerName;
             let answerState = info.wasCorrect ? "correta" : "errada";
+
             Swal.fire({
                 title: `${p} respondeu à pergunta!`,
                 text: `E a resposta está ${answerState}!\nA resposta de ${p} foi: ${info.playerAnswer}`,
@@ -398,11 +423,10 @@ abstract class Client {
 
         if(this._board) this._board.render();
         for(let playerId in this.players) this.players[playerId]?.render();
-        this.renderer.drawText(`FPS: ${this.framerate}`, 200, 2160 - 80, "white", false,
-            60, "Arial");
 
-        if(this.board) this.renderer.drawText("Jogadores", 300, 60, "white", false, 50,
-            "Arial");
+        this.renderer.drawText(`FPS: ${this.framerate}`, 200, 2160 - 80, "white", false, 60, "Arial");
+
+        if(this.board) this.renderer.drawText("Jogadores", 300, 60, "white", false, 50, "Arial");
 
         let nameY = 120;
         for(let id in this.players) {
@@ -411,6 +435,10 @@ abstract class Client {
             this.renderer.drawText(p, 300, nameY, p != this.playerTurn ? "white" : "#4ce577", false,
                 50, "Arial");
             nameY += 60;
+        }
+
+        if(this.doTenSecCounter && this.counterAnimation) {
+            this.counterAnimation.render();
         }
     }
 
@@ -496,6 +524,7 @@ class PlayerClient extends Client {
                 timer: info.useTimer ? info.timer: undefined,
                 timerProgressBar: info.useTimer,
                 allowOutsideClick: false,
+                footer: "<p style='text-align: center; margin: 0; padding: 0'>Erros de digitação (com exessão de pontuação e acentuação) na resposta a levam a ser considerada errada!</P>",
                 inputValidator(inputValue: string) {
                     if(!inputValue) return "Você precisa inserir uma resposta!";
                 }

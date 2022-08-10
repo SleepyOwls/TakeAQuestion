@@ -17,6 +17,7 @@ interface ServerToClientEvents {
     playerRolledDie: (player: string, result: number) => void;
     playerWon: (player: string) => void;
     matchEnded: () => void;
+    playerHasTenSecLeft: () => void;
 
     playerAnsweredQuestion: (player: string, info: { title: string, question: string, playerAnswer: string,
         wasCorrect: boolean }) => void;
