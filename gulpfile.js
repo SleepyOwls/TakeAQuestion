@@ -9,6 +9,8 @@ let tsProjectServer;
 let tsProjectClient;
 let tsProjectClientUtils;
 
+// https://gulpjs.com/docs/en/getting-started/async-completion
+
 function compileServer() {
     let tsResult = src(["src/**/*.ts", "!src/Client/**/*.ts"])
         .pipe(tsProjectServer());
@@ -23,7 +25,7 @@ function compileClient() {
         .pipe(tsProjectClient());
 
     return tsResult.js
-        .pipe(replace("import Swal from \"sweetalert2\";", ""))
+        .pipe(replace("import Swal from \"sweetalert2\";", "")) // Remove import statement from all files so we don't get errors as it gets loaded by in the HTML file
         .pipe(terser())
         .pipe(dest("./res/js/Client/"));
 }
@@ -42,7 +44,7 @@ exports.default = function() {
     tsProjectClient = ts.createProject('src/Client/tsconfig.json', { rootDir: process.cwd() });
     tsProjectClientUtils = ts.createProject('src/Client/tsconfig.json', { rootDir: process.cwd() });
 
-    if(process.env.DEV_ENV) {
+    if(process.env.DEV_ENV === "true") {
         watch(["src/**/*.ts", "!src/Client/**/*.ts"], {ignoreInitial: false}, compileServer);
         watch("src/Client/**/*.ts", {ignoreInitial: false}, compileClient);
         watch("src/Utils/**/*.ts", {ignoreInitial: false}, compileUtilsForClient);

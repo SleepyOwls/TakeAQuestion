@@ -639,9 +639,12 @@ class PlayerClient extends Client {
 class AdminClient extends Client {
     private creatingMatch: boolean;
     private matchCreator: MatchCreator;
+    private serverAdress: string;
 
     constructor() {
         super();
+
+        this.ioClient.once("hostAdress", (ip) => this.serverAdress = ip);
 
         this.ioClient.emit("loginAdmin");
         this.ioClient.emit("isMatchOpen", (isOpen) => {
@@ -662,6 +665,7 @@ class AdminClient extends Client {
     render() {
         super.render();
         if(this.creatingMatch) this.matchCreator.getPreviewBoard().render();
+        if(!this.creatingMatch) this.renderer.drawText(this.serverAdress, Renderer.canvasWidth - 500, 100, "#fff", false, 80, "Arial");
     }
 
     public createMatch(creator: MatchCreator) {

@@ -18,6 +18,7 @@ interface ServerToClientEvents {
     playerWon: (player: string) => void;
     matchEnded: () => void;
     playerHasTenSecLeft: () => void;
+    hostAdress: (ip: string) => void;
 
     playerAnsweredQuestion: (player: string, info: { title: string, question: string, playerAnswer: string,
         wasCorrect: boolean }) => void;

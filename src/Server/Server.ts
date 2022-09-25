@@ -5,11 +5,11 @@ import {InitialBoardInfo} from "../Utils/BoardInfo";
 import {BoardServer} from "./BoardServer";
 import {MatchData} from "../Utils/MatchData";
 import {Player} from "./Player";
-
-import {v4 as uuid} from "uuid";
 import {Character} from "../Utils/Enums";
 import {CardManager, CardParser} from "./Cards";
 
+import {v4 as uuid} from "uuid";
+import { address } from "ip";
 class GameServer {
     private server: Server;
     private board: BoardServer;
@@ -22,6 +22,7 @@ class GameServer {
     private cardManager: CardManager;
 
     private playerRoundCallback: () => void;
+    private hostIPAdress: string;
 
     private readonly delay = (ms: number) => new Promise(res => setTimeout(res, ms));
     
@@ -35,6 +36,8 @@ class GameServer {
             let time = `${h >= 10 ? h : "0" + h}:${m >= 10 ? m : "0" + m}:${s >= 10 ? s : "0" + s}`;
             console["originalLog"](`[${time}]`, data);
         }
+
+        this.hostIPAdress = address("public");
 
         this.matchOpen = false;
         this.players = {};
@@ -134,6 +137,8 @@ class GameServer {
                         if(Object.keys(this.players).length < 2) return;
                         this.startMatch();
                     });
+
+                    socket.emit("hostAdress", `${this.hostIPAdress}:8080`);
                 }
             });
         });
@@ -190,7 +195,7 @@ class GameServer {
                 }
 
                 await new Promise<void>((resolve) => {
-                    this.makePlayerTakeQuestion(player).then(async info => {
+                    this.makePlayerTakeQuestion(player).then(async (info) => {
                         await this.delay(1000);
                         if(info.correct) await this.rollDie(player.uuid, (result) =>
                             player.move(result));
@@ -202,7 +207,7 @@ class GameServer {
                                 takeSurpriseCardIfPossible(player).then(() => {
 
                                     this.sendPlayerUpdateEvent();
-                                    setTimeout(resolve, 2000);
+                                    setTimeout(() => resolve(), 2000);
                                 }));
                         } else setTimeout(() => resolve(), 2000);
                     });
@@ -293,9 +298,10 @@ class GameServer {
             });
 
             let tenSecLeftCounter;
+            let passTimeout;
             
             if(this.cardManager.useTimer) {
-                setTimeout(() => {
+                passTimeout = setTimeout(() => {
                     this.server.emit("playerPassedTurn", player.uuid);
                     this.delay(4000).then(() => resolve({ correct: false, answer: "" }));
                 }, this.cardManager.timer * 1000);
@@ -313,6 +319,7 @@ class GameServer {
             }, (answer: string) => {
                 if (!answer) return;
                 clearTimeout(tenSecLeftCounter);
+                clearTimeout(passTimeout);
 
                 let originalAnswer = answer;
 

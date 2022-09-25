@@ -12,8 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/ip": "^1.1.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "ip": "^1.1.8",
     "socket.io": "^4.5.1",
     "sweetalert2": "^11.4.24",
     "uuid": "^8.3.2"
