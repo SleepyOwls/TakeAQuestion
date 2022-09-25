@@ -1,42 +1,50 @@
 const { src, dest, watch, series, parallel } = require("gulp");
 const ts = require("gulp-typescript");
 const replace = require('gulp-replace');
+const terser = require('gulp-terser');
 
 const dotenv = require("dotenv");
 
-function compileServer() {
-    let tsProjectServer = ts.createProject('tsconfig.json');
+let tsProjectServer;
+let tsProjectClient;
+let tsProjectClientUtils;
 
+// https://gulpjs.com/docs/en/getting-started/async-completion
+
+function compileServer() {
     let tsResult = src(["src/**/*.ts", "!src/Client/**/*.ts"])
         .pipe(tsProjectServer());
 
     return tsResult.js
+        .pipe(terser())
         .pipe(dest("./out/"));
 }
 
 function compileClient() {
-    let tsProjectClient = ts.createProject('src/Client/tsconfig.json', { rootDir: process.cwd() });
-
     let tsResult = src("src/Client/**/*.ts")
         .pipe(tsProjectClient());
 
     return tsResult.js
-        .pipe(replace("import Swal from \"sweetalert2\";", ""))
+        .pipe(replace("import Swal from \"sweetalert2\";", "")) // Remove import statement from all files so we don't get errors as it gets loaded by in the HTML file
+        .pipe(terser())
         .pipe(dest("./res/js/Client/"));
 }
 
 function compileUtilsForClient() {
-    let tsProjectClient = ts.createProject('src/Client/tsconfig.json', { rootDir: process.cwd() });
-
     return src("src/Utils/**/*.ts")
-        .pipe(tsProjectClient())
+        .pipe(tsProjectClientUtils())
+        .pipe(terser())
         .pipe(dest("./res/js/Utils/"));
 }
 
 exports.default = function() {
     dotenv.config();
 
-    if(process.env.DEV_ENV === true) {
+    tsProjectServer = ts.createProject('tsconfig.json');
+    tsProjectClient = ts.createProject('src/Client/tsconfig.json', { rootDir: process.cwd() });
+    tsProjectClientUtils = ts.createProject('src/Client/tsconfig.json', { rootDir: process.cwd() });
+
+    if(process.env.DEV_ENV === "true") {
         watch(["src/**/*.ts", "!src/Client/**/*.ts"], {ignoreInitial: false}, compileServer);
         watch("src/Client/**/*.ts", {ignoreInitial: false}, compileClient);
         watch("src/Utils/**/*.ts", {ignoreInitial: false}, compileUtilsForClient);
@@ -44,5 +52,3 @@ exports.default = function() {
         series(compileServer, parallel(compileClient, compileUtilsForClient));
     }
 }
-
-// exports.default = series(compileServer, parallel(compileClient, compileUtilsForClient));

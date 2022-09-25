@@ -1,0 +1,1669 @@
+{
+  "useTimer": true,
+  "timer": 30,
+  "cards": {
+    "questions": [
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a medida da quantidade de matéria.",
+        "answer": "Massa",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Mesmo que a aceleração da gravidade se altere, eu permaneço igual.",
+        "answer": "Massa",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou ligada intimamente à inércia.",
+        "answer": "Massa",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "No Sistema Internacional de Unidades, sou medida em quilogramas (Kg).",
+        "answer": "Massa",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Praticamente tudo me possui, das partículas subatômicas às galáxias.",
+        "answer": "Massa",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Não dependo da gravidade, por isso não sou alterado como o peso.",
+        "answer": "Massa",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou uma força descendente que depende da gravidade.",
+        "answer": "Peso",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Por depender da gravidade, sou fácil de ser medido.",
+        "answer": "Peso",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Posso ser usado para medir a massa.",
+        "answer": "Peso",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Meu valor é diferente em cada planeta apesar da massa se manter igual.",
+        "answer": "Peso",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "No espaço, longe da gravidade, eu não existo.",
+        "answer": "Peso",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Quanto maior eu sou, mais massa é comprimida no mesmo espaço.",
+        "answer": "Densidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou medida em quilogramas 3 por metro cúbico (Kg/m³).",
+        "answer": "Densidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a medida de quão compactos os objetos são.",
+        "answer": "Densidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Afundar ou nadar, tudo cabe a mim.",
+        "answer": "Densidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Manchas de óleo ficam sobre a água e balões cheios de hélio sobem no ar por minha causa.",
+        "answer": "Densidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Ósmio e o Irídio são os metais que possuem o maior valor de mim",
+        "answer": "Densidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Passeio por aí, cobrindo uma certa distância em um determinado tempo.",
+        "answer": "Velocidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "O atrito e a resistência do ar são as únicas coisas que me fazem perder a minha constância.",
+        "answer": "Velocidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou medida em metros por segundo (m/s).",
+        "answer": "Velocidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu posso lhe dizer o quão rápido você pode ir de um lugar para outro",
+        "answer": "Velocidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Ao contrário da aceleração, não gosto de variar.",
+        "answer": "Velocidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou o quão rápido as coisas ganham velocidade.",
+        "answer": "Aceleração",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Não sou uma força, mas você a sente como se fosse.",
+        "answer": "Aceleração",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou medida em metros por segundo ao quadrado (m/s²).",
+        "answer": "Aceleração",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Para que eu apareça, as forças precisam estar desequilibradas e eu sigo sempre a direção da força resultante.",
+        "answer": "Aceleração",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Os dragsters e os foguetes são as máquinas produzidas pelo homem que conseguem gerar a maior intensidade de mim.",
+        "answer": "Aceleração",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "O Guepardo é o animal que consegue gerar a maior intensidade de mim.",
+        "answer": "Aceleração",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou medida em Newtons (N).",
+        "answer": "Força",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu supero a inércia para empurrar, puxar e girar as coisas.",
+        "answer": "Força",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a razão pela qual o seu pé não afunda no chão quando você caminha.",
+        "answer": "Força",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a razão pela qual os foguetes espaciais conseguem decolar e porque é uma má ideia correr contra uma parede.",
+        "answer": "Força",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu me junto à massa e a aceleração para mover as coisas.",
+        "answer": "Força",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu dificulto os objetos entrarem em movimento e depois os tornos difíceis de serem parados.",
+        "answer": "Inércia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Para fazer um objeto se movimentar, você primeiro me deve superar",
+        "answer": "Inércia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu sou a resistência de um objeto ao movimento.",
+        "answer": "Inércia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Quanto mais pesado for o objeto, menor é a minha intenção de sair do lugar.",
+        "answer": "Inércia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou uma força aderente que odeia qualquer tipo de movimento.",
+        "answer": "Atrito",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Apareço quando duas superfícies estão em contato.",
+        "answer": "Atrito",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Minha força perturbadora faz a energia perder utilidade, desgasta peças mecânicas e gera calor ao movimentar coisas.",
+        "answer": "Atrito",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Ao gerar calor em excesso, transformo a energia útil, como a Energia Cinética em outros tipos de energia.",
+        "answer": "Atrito",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sem mim, o mundo seria um lugar bem escorregadio.",
+        "answer": "Atrito",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sem mim os freios dos veículos seriam inúteis.",
+        "answer": "Atrito",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a força de atração entre 2 objetos.",
+        "answer": "Gravidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou uma das forças fundamentais da natureza e nunca desapareço por completo.",
+        "answer": "Gravidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Buracos negros possuem tanto de mim que nem mesmo a luz consegue escapar dele.",
+        "answer": "Gravidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu atuo principalmente na vastidão do espaço.",
+        "answer": "Gravidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu interajo com objetosmesmo a distâncias imensas.",
+        "answer": "Gravidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Fui a primeira das 4 forças fundamentais da natureza a ser descoberta.",
+        "answer": "Gravidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a mais fraca das 4 forças fundamentais da natureza.",
+        "answer": "Gravidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu impeço você de pular muito alto.",
+        "answer": "Gravidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "O alcance de minha atuação é infinito.",
+        "answer": "Gravidade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou medida em Joules (J) ou calorias (cal).",
+        "answer": "Energia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Posso me transformar existindo em várias formas diferentes.",
+        "answer": "Energia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Minha habilidade de me transformar sem esforço em diferentes formas é o que permite a existência de tantas máquinas diferentes.",
+        "answer": "Energia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "No planeta Terra, a maior parte de mim vem do Sol.",
+        "answer": "Energia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "O Sol libera mais quantidade de mim em um segundo, que todos os reatores nucleares do mundo produzem em 1 ano.",
+        "answer": "Energia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Albert Einstein disse que a matéria é apenas uma forma supercondensada de mim.",
+        "answer": "Energia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou do tipo armazenada que pode ser convertida em outras formas.",
+        "answer": "Energia Potencial",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu existo em 3 formas, a gravitacional, a elástica e a elétrica.",
+        "answer": "Energia Potencial",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Na minha forma gravitacional, dependo da massa do objeto, da altura dele em relação ao solo e da aceleração da gravidade.",
+        "answer": "Energia Potencial",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Na minha forma elástica, dependo do quanto a mola é comprimida ou esticada e também da característica específica do material utilizado.",
+        "answer": "Energia Potencial",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Na minha forma elétrica, dependo dos valores das cargas elétricas envolvidas e da distância entre elas.",
+        "answer": "Energia Potencial",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Quanto mais de mim na moléculas de uma substância, maior é a sua temperatura.",
+        "answer": "Energia cinética",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Dependo da massa e da velocidade.",
+        "answer": "Energia cinética",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sempre apareço quando algo se move.",
+        "answer": "Energia cinética",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou muito usada para gerar eletricidade e dar força a qualquer tipo de máquina.",
+        "answer": "Energia cinética",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Se mova com o dobro da velocidade e você terá 4 vezes mais de mim",
+        "answer": "Energia cinética",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "A Entropia diminui a minha utilidade.",
+        "answer": "Energia cinética",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a medida da desordem no universo.\n",
+        "answer": "Entropia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a rainha do caos e sempre asseguro que a energia seja dissipada.",
+        "answer": "Entropia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a inimiga de todas as máquinas.",
+        "answer": "Entropia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Cresço sempre e trabalho em uma única direção.",
+        "answer": "Entropia",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Quando eu existo, não há atrito ou resistência do ar para frear as coisas.",
+        "answer": "Vácuo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Os cientistas antigos achavam que era impossível eu existir.",
+        "answer": "Vácuo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Limpo sua casa, sou usado em comidas congeladas e deixo suas bebidas quentes ou frias em garrafas térmicas.",
+        "answer": "Vácuo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Os astronautas usam roupas espaciais pressurizadas no espaço por minha causa.",
+        "answer": "Vácuo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "A radiação que eu produzo depende apenas de meu calor.",
+        "answer": "Corpo Negro",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Quando um objeto é como eu, ele absorve toda a luz que chega até ele e irradia na forma de calor.",
+        "answer": "Corpo Negro",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a razão pela qual coisas escuras esquentam mais e os objetos claros permanecem mais frios.",
+        "answer": "Corpo Negro",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou ondas de energia captadas pelos seus tímpanos.",
+        "answer": "Som",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Viajo por vibrações na matéria.",
+        "answer": "Som",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Minhas ondas é do tipo Transversal.",
+        "answer": "Som",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou o responsável por você falar com outras pessoas eouça o mundo.",
+        "answer": "Som",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "No ar, eu viajo a 340 m/s",
+        "answer": "Som",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "O ser humano só pode me ouvir dentro da faixa de frequência de 20 a 20.000 Hertz.",
+        "answer": "Som",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a quantidade de repetições de uma onda por unidade de tempo.",
+        "answer": "Frequência",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou medida em Hertz (Hz).",
+        "answer": "Frequência",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou o mais importante parâmetro de uma onda.",
+        "answer": "Frequência",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "De modo geral, quanto maior eu sou, mais energia as ondas carregam.",
+        "answer": "Frequência",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou energia concentrada em um feixe de luz em um único comprimento de onda.",
+        "answer": "Laser",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "A tradução direta de meu nome é Amplificação da Luz por Emissão Estimulada de Radiação.",
+        "answer": "Laser",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Fui proposto teoricamente por Albert Einstein em 1917.",
+        "answer": "Laser",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a onda eletromagnética com a frequência mais baixa.",
+        "answer": "Onda de Rádio",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ondas de rádio" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou responsável pelas transmissões TV e telefonia celular",
+        "answer": "Onda de Rádio",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ondas de rádio" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Radiotelescópios conseguem me captar vinda do Universo afora.",
+        "answer": "Onda de Rádio",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ondas de rádio" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a energia eletromagnética captada pelos seus olhos.",
+        "answer": "Luz",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou o que se vê quando se olha para alguma coisa.",
+        "answer": "Luz",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Nossos olhos são sensíveis a mim.",
+        "answer": "Luz",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "As plantas usam a minha energia para crescer.",
+        "answer": "Luz",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou o responsável pelo bronzeamento da pele das pessoas.",
+        "answer": "Ultravioleta",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ulta violeta" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "A parte mais perigosa de mim é bloqueada pela camada de ozônio.",
+        "answer": "Ultravioleta",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ulta violeta" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Em excesso, posso alterar o DNA das células quebrando ligações químicas e liberando moléculas reativas que podem causar câncer de pele.",
+        "answer": "Ultravioleta",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ulta violeta" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou usado em lâmpadas anti-insetos e também para esterilizar a água potável.",
+        "answer": "Ultravioleta",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ulta violeta" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Quem me descobriu foi Johann Wilhelm Ritter em 1801.",
+        "answer": "Ultravioleta",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Ulta violeta" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Coisas quentes me liberam e não sou o calor.",
+        "answer": "Infravermelho",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "infra vermelho" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "A atmosfera terrestre bloqueia a maior parte de mim que vem do Sol.",
+        "answer": "Infravermelho",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "infra vermelho" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Controles remotos me usam para mandar comandos às televisões.",
+        "answer": "Infravermelho",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "infra vermelho" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Quem me descobriu foi Willian Herschel em 1800.",
+        "answer": "Infravermelho",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "infra vermelho" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Câmeras de visão térmica me captam.",
+        "answer": "Infravermelho",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "infra vermelho" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou uma radiação de grande energia que pode causar e curar o câncer.",
+        "answer": "Raios-X",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Os radiologistas utilizam aventais forrados com chumbo para se protegerem de mim.",
+        "answer": "Raios-X",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Embora eu seja perigoso, minha capacidade de ver dentro das coisas me torna útil na medicina, principalmente em localizar ossos quebrados.",
+        "answer": "Raios-X",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu apareço quando correntes de elétrons de alta energia se chocam contra um alvo metálico.",
+        "answer": "Raios-X",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Em 1999, o Observatório Espacial Chandra, captando a minha radiação, revelou um Universo onde buracos negros destroem estrelas e estrelas de nêutrons explodem em pedaços.",
+        "answer": "Raios-X",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Wilhem Röntgen me descobriu em 1875.",
+        "answer": "Raios-X",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio-x" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou uma forma letal de radiação e causo sérios danos ao ser humano.",
+        "answer": "Raios Gama",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Tenho o comprimento de onda mais curto e o fóton de maior energia",
+        "answer": "Raios Gama",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou o maior causador de envenenamento por radiação.",
+        "answer": "Raios Gama",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Atravesso qualquer material como se ele não existisse.",
+        "answer": "Raios Gama",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Na década de 1960, colocaram sensores no espaço para detectar testes nucleares ilegais e em vez disso descobriram as mais violentas explosões no Universo.",
+        "answer": "Raios Gama",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Esterilizo comida e destruo células cancerígenas.",
+        "answer": "Raios Gama",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Paul Villard me descobriu em 1900.",
+        "answer": "Raios Gama",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Raio gama" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu componho toda a matéria do Universo.",
+        "answer": "Átomo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Estou por toda a parte à sua volta, tudo o que você pega ou senta em cima é feito de mim.",
+        "answer": "Átomo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou tão pequeno que um fio de cabelo é cerca de meio milhão maior do que eu.",
+        "answer": "Átomo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Na maior parte, sou espaço vazio",
+        "answer": "Átomo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Posso ceder ou compartilhar meus elétrons em reações químicas com outros de mim.",
+        "answer": "Átomo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Dividir o meu núcleo é incrivelmente difícil e requer altíssimas energias.",
+        "answer": "Átomo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou uma partícula fundamental encontrada orbitando o núcleo do átomo.",
+        "answer": "Elétron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Em um átomo, sempre existe o mesmo número meu e de prótons.",
+        "answer": "Elétron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Minha carga elétrica é negativa.",
+        "answer": "Elétron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Minha carga elétrica tem a mesma intensidade que a do próton.",
+        "answer": "Elétron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Em reações químicas, posso me liberar do átomo.",
+        "answer": "Elétron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou o responsável pelo funcionamento de todos os equipamentos elétricos.",
+        "answer": "Elétron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Joseph J. Thomson me descobriu em 1897.",
+        "answer": "Elétron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou uma partícula encontrada no núcleo de um átomo.",
+        "answer": "Próton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Não sou uma partícula fundamental. Sou composto de 2 quarks up e 1 quark down.",
+        "answer": "Próton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Minha carga elétrica é positiva.",
+        "answer": "Próton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Apesar da repulsão elétrica que existe entre mim e outros iguais a mim, permanecemos pertinhos no núcleo por causa da Força Nuclear Forte.",
+        "answer": "Próton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Minha carga elétrica tem a mesma intensidade que a do elétron.",
+        "answer": "Próton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Ernest Rutherford me descobriu em 1918.",
+        "answer": "Próton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Não sou uma partícula fundamental. Sou composto de 2 quarks down e 1 quark up.",
+        "answer": "Nêutron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Não possuo carga elétrica.",
+        "answer": "Nêutron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou afetado somente pela Força Nuclear Forte e pela Força da Gravidade.",
+        "answer": "Nêutron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a chave para as reações nucleares em cadeia.",
+        "answer": "Nêutron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Não sou afetado pelo eletromagnetismo.",
+        "answer": "Nêutron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "James Chadwick me descobriu em 1932.",
+        "answer": "Nêutron",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou o responsável por manter unido o núcleo atômico.",
+        "answer": "Força Nuclear Forte",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a mais forte de todas as forças fundamentais da natureza.",
+        "answer": "Força Nuclear Forte",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Se eu não existisse, não haveria átomos além do Hidrogênio.",
+        "answer": "Força Nuclear Forte",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Meu campo de ação é extremamente curto.",
+        "answer": "Força Nuclear Forte",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Quando sou vencido, o núcleo se parte liberando partículas alfa.",
+        "answer": "Força Nuclear Forte",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Hideki Yukawa me descobriu em 1934.",
+        "answer": "Força Nuclear Forte",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou detectada por um aparelho chamado Contador Geiger e medido em becquerels.",
+        "answer": "Radioatividade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou o fruto de uma batalha entre o eletromagnetismo e a força nuclear forte.",
+        "answer": "Radioatividade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Quando um átomo se parte, sou a responsável pelas partículas alfa, partículas beta e explosões de raios gama.",
+        "answer": "Radioatividade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Antes de ser bem compreendida, muitos cientistas morreram por minha causa.",
+        "answer": "Radioatividade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Estou presente nas usinas de energia nuclear, esterilizo alimentos, dato a idade de artefatos antigos e mato células cancerosas.",
+        "answer": "Radioatividade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Meu nível de atividade é medido pelo tamanho da minha “meia vida”, que é o tempo para que eu divida metade dos meus átomos.",
+        "answer": "Radioatividade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Henri Becquerel me descobriu em 1896.",
+        "answer": "Radioatividade",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true,
+        "aliases": [ "Radio atividade" ]
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a coisa mais rápida do Universo.",
+        "answer": "Fóton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Não possuo massa.",
+        "answer": "Fóton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Desapareço ao interagir com qualquer coisa.",
+        "answer": "Fóton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Trago luz ao mundo, mas seus olhos precisam captar muitos de mim para detectála.",
+        "answer": "Fóton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Revelo filmes fotográficos, desboto suas roupas e também faço funcionar placas de energia solar.",
+        "answer": "Fóton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Albert Einstein me propôs em 1905.",
+        "answer": "Fóton",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Posso transformar nêutrons em próton liberando radiação.",
+        "answer": "Força Nuclear Fraca",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sheldon Glashow, Abdus Salam e Steven Weinberg me descobriram em 1957.",
+        "answer": "Força Nuclear Fraca",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu afeto quarks e leptons.",
+        "answer": "Força Nuclear Fraca",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou conhecida como a força que quebra partículas.",
+        "answer": "Força Nuclear Fraca",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou o acúmulo de cargas elétricas em um lugar.",
+        "answer": "Eletricidade Estática",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou a responsável por aqueles estalinhos quando você tira uma blusa.",
+        "answer": "Eletricidade Estática",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Não me movimento igual a corrente elétrica.",
+        "answer": "Eletricidade Estática",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou gerada quando 2 isolantes elétricos se atritam.",
+        "answer": "Eletricidade Estática",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Minha atração a cargas opostas é usada em impressoras de jato de tinta e fotocopiadoras para puxar a tinta eletricamente carregada para o papel.",
+        "answer": "Eletricidade Estática",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Não me movimento igual a corrente elétrica.",
+        "answer": "Eletricidade Estática",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou uma forma de energia transportada por cargas elétricas.",
+        "answer": "Corrente Elétrica",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou medida em Ampères (A).",
+        "answer": "Corrente Elétrica",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Minha primeira “aparição” científica foi em um famoso experimento envolvendo pernas de rã.",
+        "answer": "Corrente Elétrica",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sem mim, não haveria televisões, telefones, computadores ou lâmpadas elétricas.",
+        "answer": "Corrente Elétrica",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Posso ser transformada em luz, som e movimento.",
+        "answer": "Corrente Elétrica",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Dependendo das condições, em um choque eu posso matar uma pessoa.",
+        "answer": "Corrente Elétrica",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Alessandro Volta me descobriu em 1799.",
+        "answer": "Corrente Elétrica",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Use-me para se orientar com uma bússola.",
+        "answer": "Magnetismo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou uma força invisível causada apenas por alguns sólidos e fluidos.",
+        "answer": "Magnetismo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou o responsável pelos ímãs possuírem polos norte e sul que se atraem.",
+        "answer": "Magnetismo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Meu uso mais antigo que é conhecido, é datado de 2 a.C.",
+        "answer": "Magnetismo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou responsável pela atração e repulsão entre objetos carregados eletricamente.",
+        "answer": "Eletromagnetismo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu mantenho os elétrons em volta dos átomos.",
+        "answer": "Eletromagnetismo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu permito à matéria que ela mantenha a sua forma.",
+        "answer": "Eletromagnetismo",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu gero eletricidade a partir das propriedades do eletromagnetismo.",
+        "answer": "Gerador",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Todas as suas necessidades de energia são supridas por mim.",
+        "answer": "Gerador",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "O segredo do meu sucesso é que o eletromagnetismo é composto de campo magnético e campo elétrico.",
+        "answer": "Gerador",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Em 1832, Hippolyte Pixii foi o primeiro a construir uma versão minha.",
+        "answer": "Gerador",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Em 1831, Michael Faraday foi o primeiro a propor uma versão minha.",
+        "answer": "Gerador",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou um tipo de metal estranho que não conduz bem a eletricidade.",
+        "answer": "Semicondutor",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Estou presente em todo dispositivo digital moderno.",
+        "answer": "Semicondutor",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Sou constituído com elementos químicos conhecidos como semimetais.",
+        "answer": "Semicondutor",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Não funciono sem que sejam adicionadas algumas impurezas.",
+        "answer": "Semicondutor",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Eu funciono deixando a corrente elétrica fluir apenas em direções específicas, o que é a chave para a minha excepcional funcionalidade.",
+        "answer": "Semicondutor",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "Em 1947, fui descoberto nos Laboratórios Bell.",
+        "answer": "Semicondutor",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      },
+      {
+        "title": "Quem sou eu?",
+        "question": "ESilício e Germânio são os elementos mais comuns que me compõem.",
+        "answer": "Semicondutor",
+        "markSimilarAsCorrect": true,
+        "correctIfCorrectAnswerIsOnUserAnswer": true
+      }
+    ],
+    "surprise": [
+      {
+        "type": "luck",
+        "text": "Avance 1 casa.",
+        "actions": {
+          "advance": 1
+        }
+      },
+      {
+        "type": "luck",
+        "text": "Avance 1 casa.",
+        "actions": {
+          "advance": 1
+        }
+      },
+      {
+        "type": "luck",
+        "text": "Avance 2 casas.",
+        "actions": {
+          "advance": 2
+        }
+      },
+      {
+        "type": "luck",
+        "text": "Avance 2 casas.",
+        "actions": {
+          "advance": 2
+        }
+      },
+      {
+        "type": "luck",
+        "text": "Avance 3 casas.",
+        "actions": {
+          "advance": 3
+        }
+      },
+      {
+        "type": "luck",
+        "text": "Avance 3 casas.",
+        "actions": {
+          "advance": 3
+        }
+      },
+      {
+        "type": "luck",
+        "text": "Ande o dobro de casas na próxima vez que jogar o dado.",
+        "actions": {
+          "next_round": {
+            "advance_multiplier": 2
+          }
+        }
+      },
+      {
+        "type": "luck",
+        "text": "Ande o dobro de casas na próxima vez que jogar o dado.",
+        "actions": {
+          "next_round": {
+            "advance_multiplier": 2
+          }
+        }
+      },
+      {
+        "type": "luck",
+        "text": "Pegue uma charada, se você acertar, avance 2 casas. Se errar, nada acontece.",
+        "actions": {
+          "take_question": {
+            "if_correct": {
+              "advance": 2
+            }
+          }
+        }
+      },
+      {
+        "type": "luck",
+        "text": "Pegue uma charada, se você acertar, avance 2 casas. Se errar, nada acontece.",
+        "actions": {
+          "take_question": {
+            "if_correct": {
+              "advance": 2
+            }
+          }
+        }
+      },
+      {
+        "type": "luck",
+        "text": "Todos os adversários voltam uma casa.",
+        "actions": {
+          "others": {
+            "back": 1
+          }
+        }
+      },
+      {
+        "type": "luck",
+        "text": "Escolha 1 adversário e façao voltar 2 casas.",
+        "actions": {
+          "choose_enemy": {
+            "back": 2
+          }
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Volte 1 casa.",
+        "actions": {
+          "back": 1
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Volte 1 casa.",
+        "actions": {
+          "back": 1
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Volte 2 casas.",
+        "actions": {
+          "back": 2
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Volte 2 casas.",
+        "actions": {
+          "back": 2
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Volte 3 casas.",
+        "actions": {
+          "back": 3
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Volte 3 casas.",
+        "actions": {
+          "back": 3
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Na sua próxima vez de jogar você passa a vez.",
+        "actions": {
+          "next_round": {
+            "pass": true
+          }
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Na sua próxima vez de jogar você passa a vez.",
+        "actions": {
+          "next_round": {
+            "pass": true
+          }
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Pegue uma charada, se você errar, volte 2 casas. Se acertar, nada acontece.",
+        "actions": {
+          "take_question": {
+            "if_wrong": {
+              "back": 2
+            }
+          }
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Pegue uma charada, se você errar, volte 2 casas. Se acertar, nada acontece.",
+        "actions": {
+          "take_question": {
+            "if_wrong": {
+              "back": 2
+            }
+          }
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Todos os adversários avançam uma casa",
+        "actions": {
+          "others": {
+            "advance": 1
+          }
+        }
+      },
+      {
+        "type": "bad_luck",
+        "text": "Na sua próxima vez de jogar o dado, se obter um número maior do que 2, você não avança e passa a vez.",
+        "actions": {
+          "roll_die": {
+            "if_bigger": {
+              "target": 2,
+              "do": {
+                "pass": true
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

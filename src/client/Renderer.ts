@@ -22,7 +22,9 @@ class Renderer {
         this.context.fillStyle = "#fff";
     }
 
-    public drawTriangle(x: number, y: number, width: number, height: number, color: string, outline: boolean, upsideDown: boolean) {
+    public drawTriangle(x: number, y: number, width: number, height: number, color: string, outline: boolean,
+                        upsideDown: boolean) {
+
         x *= this.xScale;
         y *= this.yScale;
 
@@ -86,7 +88,9 @@ class Renderer {
         }
     }
 
-    public drawText(text: string, x: number, y: number, color: string, outline: boolean, pixelSize: number, font: string) {
+    public drawText(text: string, x: number, y: number, color: string, outline: boolean, pixelSize: number,
+                    font: string) {
+
         x *= this.xScale;
         y *= this.yScale;
 

@@ -24,7 +24,7 @@ class Window {
 }
 
 let env = dotenv.config();
-if(env.error) console.log(`${env.error.message}${env.error.stack ? ": " + env.error.stack : ""}`);
+if(env.error && process.env.DEBUG) console.log(`${env.error.message}${env.error.stack ? ": " + env.error.stack : ""}`);
 
 new Game();
 
